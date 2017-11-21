@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 
   def full_profile?
-    !first_name.empty? && !last_name.empty?
+    !first_name.blank? && !last_name.blank?
   end
 
 end
