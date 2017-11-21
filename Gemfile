@@ -4,6 +4,9 @@ ruby '2.3.5'
 # user login
 gem 'devise'
 
+# assets
+gem 'faker'
+
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
