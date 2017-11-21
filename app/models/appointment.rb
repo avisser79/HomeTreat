@@ -3,5 +3,6 @@ class Appointment < ApplicationRecord
   # belongs_to :treatment
   validates :location, presence: true
   validates :client, presence: true
+  validates :start_time, presence: true
   # validates :treatment, presence: true
 end
