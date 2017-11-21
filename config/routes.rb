@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resource :profile, except: [:destroy]
   resources :specialists, except: [:destroy] do
-    resources :treatments, shallow: true
+    resources :treatments, shallow: true, except: [:index, :show]
   end
 
 
