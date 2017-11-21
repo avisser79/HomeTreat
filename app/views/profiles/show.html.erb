@@ -1,0 +1,6 @@
+<%= @user %>
+<%= @user.email %>
+<%= link_to 'update proile', edit_profile_path, class: 'btn btn-primary' %>
+<% if @user.full_profile? %>
+  <%= link_to 'register as specialist', new_specialist_path, class: 'btn btn-primary' %>
+<% end %>
