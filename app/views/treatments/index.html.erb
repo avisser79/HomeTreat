@@ -1,0 +1,7 @@
+<h1>treatments for: <%= Specialist.find(params[:specialist_id]) %></h1>
+<ul>
+<% @treatments.each do |treatment| %>
+<li>
+  <p><%= treatment.name %></p> <%= link_to 'see details', treatment_path(treatment) %>
+  </li>
+</ul>

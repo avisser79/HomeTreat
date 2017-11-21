@@ -2,3 +2,4 @@
 <p> <%= @specialist.user.email %> </p>
 <p><%= @specialist.bio %></p>
 <p><%= @specialist.work_experience %></p>
+<%= link_to 'see treatments', specialist_treatments_path(@specialist), class: 'btn btn-primary' %>
