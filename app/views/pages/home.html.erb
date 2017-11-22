@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= video_tag "body.webm", :loop => true, :autoplay => true, poster: "ht_banner.jpg", class: "video" %>
+<%= video_tag "body.mp4", :loop => true, :autoplay => true, poster: "ht_banner.jpg", class: "video" %>
+
+<div class="videobanner" style="background-image: radial-gradient(rgba(201,74,1,0.1), rgba(201,74,1,0.2), rgba(1,104,201,0.5))">
+  <div class="banner-content">
+      <h1 id="hometreat_header"><span style="color: #FFFFFF">Home</span><span style="color: #0168c9">Treat</span></h1>
+      <p id="hometreat_usp"><strong>Get your treatment</strong>. Anytime. Anywhere.</p>
+      <%= render 'shared/search_treatment' %>
+      <%= render 'shared/search_date' %>
+      <%= render 'shared/search_price' %>
+      <%= render 'shared/search_location' %>
+  </div>
+</div>
