@@ -1,7 +1,8 @@
 class AppointmentsController < ApplicationController
-  def index
-    @appointments = Appointment.all
-  end
+  # geen index nodig
+ # def index
+ #   @appointments = Appointment.all
+ # end
 
   def new
     @appointment = Appointment.new
@@ -28,7 +29,9 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
     if @appointment.update(appointment_params)
-      redirect_to appointment_path
+      # appointment_path heeft params nodig
+      # redirect_to appointment_path
+      redirect_to appointment_path(@appointment)
     else
       render :edit
     end
