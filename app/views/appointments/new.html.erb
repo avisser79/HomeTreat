@@ -1,0 +1,8 @@
+# <%= simple_form_for @appointment do |f| %>
+    <%= f.input :location %>
+    <%= f.input :status %>
+    <%= f.input :start_time %>
+    <%= f.association :treatments, as: :radio_buttons %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
+
