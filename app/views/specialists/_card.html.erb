@@ -1,0 +1,32 @@
+<div class="specialist_card">
+  <div class="specialist_card-photo" style="background-image: url('<%= cl_image_path specialist.user.photo, height: 200, width: 180, crop: :fill %>')">
+  </div>
+  <div class="specialist_card-info">
+    <div class="specialist_card-info-header">
+      <div class="specialist_card-specialization">
+        <h4><%= specialist.specialization %></h4>
+      </div>
+      <div class="specialist_card-hourly">
+        <h4><%= specialist.hourly_rate %> €/min</h4>
+      </div>
+    </div>
+    <div class="specialist_card-rating">
+      <% if specialist.rating %>
+          <% specialist.rating.times do %>
+            <span class="fa fa-star checked"></span>
+          <% end %>
+          <% (5-specialist.rating).times do %>
+            <span class="fa fa-star"></span>
+          <% end %>
+        <% else %>
+          <p>no rating yet</p>
+        <% end %>
+    </div>
+    <div class="specialist_card-name">
+      <h2><%= specialist.user.first_name %></h2>
+    </div>
+    <div class="specialist_card-bio">
+      <p><%= specialist.bio %></p>
+    </div>
+  </div>
+</div>
