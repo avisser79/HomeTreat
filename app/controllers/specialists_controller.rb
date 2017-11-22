@@ -24,9 +24,22 @@ class SpecialistsController < ApplicationController
     end
   end
 
+  def edit
+    @specialist = Specialist.find(params[:id])
+  end
+
+  def update
+    @specialist = Specialist.find(params[:id])
+    if @specialist.update(specialist_params)
+      redirect_to profile_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def specialist_params
-    params.require(:specialist).permit(:bio, :work_experience)
+    params.require(:specialist).permit(:bio, :work_experience, :specialization)
   end
 end

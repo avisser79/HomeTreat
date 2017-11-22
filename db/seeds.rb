@@ -80,6 +80,8 @@ puts 'upgrading half the users to specialists'
 User.take(10).each do |user|
   specialist = Specialist.new({ bio: bios.sample, work_experience: 'Did it once, looked good'})
   specialist.user = user
+  user.role = 'specialist'
+  user.save
   specialist.specialization = "#{categories.sample.name} specialist"
   specialist.hourly_rate = (20..50).to_a.sample
   puts "adding treatments to #{specialist.full_name}"
