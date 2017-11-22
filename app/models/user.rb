@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :photo, PhotoUploader
 
   def full_profile?
-    !first_name.blank? && !last_name.blank?
+    !first_name.blank? && !last_name.blank? && !photo.blank?
   end
 
 end
