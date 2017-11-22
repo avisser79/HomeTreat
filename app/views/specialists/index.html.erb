@@ -1,0 +1,10 @@
+<div class="text-center">
+<h1>All specialists in your selection</h1>
+</div>
+<div class="row">
+  <% @specialists.each do |specialist| %>
+    <div class="col-xs-12 col-md-6">
+      <%= render 'card', specialist: specialist %>
+    </div>
+  <% end %>
+</div>

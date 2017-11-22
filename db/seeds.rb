@@ -59,6 +59,7 @@ subcategories_body.each do |subcategory_body|
   subcategory_a.save
 end
 
+url = 'http://res.cloudinary.com/dkmxtdusq/image/upload/v1511358012/cmqgaa6j91patwcnynmw.jpg'
 # user seed
 puts 'creating users'
 20.times do
@@ -66,17 +67,21 @@ puts 'creating users'
   user.email = Faker::Internet.email
   user.password = 'password'
   user.password_confirmation = 'password'
+  user.remote_photo_url = url
   user.save!
 end
 
 bios = ["I'm young, friendly, and eager to earn a little on the side", "I'm selfish and like bold man, but Make-up is my true passion", "If you can do my hair I'll work for free", "My dog is hairy and ugly, so I'm fine with any hairstyle", "Beware, I like to listen to heavy metal during my work"]
 subcategories = Subcategory.all
+categories = Category.all
 
 # specialist seed
 puts 'upgrading half the users to specialists'
 User.take(10).each do |user|
   specialist = Specialist.new({ bio: bios.sample, work_experience: 'Did it once, looked good'})
   specialist.user = user
+  specialist.specialization = "#{categories.sample.name} specialist"
+  specialist.hourly_rate = (20..50).to_a.sample
   puts "adding treatments to #{specialist.full_name}"
   (1..10).to_a.sample.times do
     treatment = Treatment.new({ price: rand(5..30), duration: rand(5..60), segment: 'everyone' })

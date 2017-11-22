@@ -1,10 +1,23 @@
 // Define variables for your color scheme
 
-// For example:
-$red: #EE5F5B;
-$blue: #469AE0;
-$yellow: #FDB631;
-$orange: #E67E22;
-$green: #32B796;
-$gray: #000000;
+// Design specific colors
+$blue: #0168c9 ; // 'Treat' | text and icons searchbar | circle search button | specialist names
+$mediumblue: #4087DC ; // background searchbar
+$lightblue: #7FAEE7 ; // left- and topborder cards | righ-part search button
+$brown: #512200 ; // brown for gradient, combine with opacity of 0.3
+$lightbrown: #E4A480 ; // rating-stars | lines between reviews
+$pink: #F8E9E0 ; // background cells treatment listing -> alternate with lightpink
+$lightpink: #FCF4F0 ; // background cells treatment listing -> alternate with pink
+$gray: #4A4A4A ; // use for all 'black' text on white background
+
+// Flash-alert colors
+$red: #c91801 ;
+$orange: #c97c01 ;
+$green: #01c962 ;
+$yellow: #c9ae01 ;
+
+// Basic black and white
+$black: #000000 ;
+$white: #FFFFFF ;
+
 $light-gray: #F4F4F4;
