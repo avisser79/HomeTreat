@@ -1,0 +1,46 @@
+.specialist_card {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+  border: 1px solid grey;
+  border-top: 15px solid $lightblue;
+
+}
+
+.specialist_card-photo {
+  flex: 0 0 40%;
+  background-size: cover;
+  background-position: center;
+}
+
+.specialist_card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.specialist_card-info-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.specialist_card-specialization {
+  color: $gray;
+}
+
+.specialist_card-hourly {
+
+}
+
+.specialist_card-rating {
+
+}
+
+.specialist_card-name {
+  color: $blue;
+}
+
+.specialist_card-bio {
+  color: $gray;
+}
