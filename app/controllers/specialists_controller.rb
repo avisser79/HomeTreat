@@ -18,7 +18,7 @@ class SpecialistsController < ApplicationController
     @specialist.user = current_user
     if @specialist.save
       @specialist.user.role = 'specialist'
-      redirect_to specialist_path(@specialist)
+      redirect_to profile_path
     else
       render :new
     end

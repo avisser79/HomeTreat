@@ -1,9 +1,9 @@
 <h1>Profile info: </h1>
 <div style='width: 200px height: 300px'>
-<% if !@user.photo.blank? %>
+  <% if !@user.photo.blank? %>
   <%= cl_image_tag @user.photo %>
   <% else %>
-    <p>no image set</p>
+  <p>no image set</p>
   <% end %>
 </div>
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
@@ -11,13 +11,24 @@
 <p>email: <%= @user.email %></p>
 <%= link_to 'update profile', edit_profile_path, class: 'btn btn-primary' %>
 <% if @user.role == 'client' && @user.full_profile? %>
-  <%= link_to 'register as specialist', new_specialist_path, class: 'btn btn-primary' %>
+<%= link_to 'register as specialist', new_specialist_path, class: 'btn btn-primary' %>
 <% end %>
 <% if @user.role == 'specialist' %>
-  <% specialist = @user.specialist %>
-  <h2>Specialist profile info:</h2>
-  <p>Specialization: <%= specialist.specialization %></p>
-  <p>Work experience: <%= specialist.work_experience %></p>
-  <p>Bio: <%= specialist.bio %></p>
-  <%= link_to 'update specialist profile', edit_specialist_path(specialist), class: 'btn btn-primary' %>
+<% specialist = @user.specialist %>
+<h2>Specialist profile info:</h2>
+<p>Specialization: <%= specialist.specialization %></p>
+<p>Work experience: <%= specialist.work_experience %></p>
+<p>Bio: <%= specialist.bio %></p>
+<h2>Treatments: </h2>
+<% if specialist.treatments %>
+<ul>
+  <% specialist.treatments.each do |treatment| %>
+  <li><%= treatment.description %>; category:<%= treatment.subcategory.name %>; €<%= treatment.price %>; <%= treatment.duration %>min</li>
+  <% end %>
+</ul>
+<% else %>
+<p>No treatments yet</p>
+<% end %>
+<%= link_to 'update specialist profile', edit_specialist_path(specialist), class: 'btn btn-primary' %>
+<%= link_to 'see my public profile', specialist_path(specialist) %>
 <% end %>

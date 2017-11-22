@@ -5,8 +5,14 @@
 
 <h2>treatments:</h2>
 <ul>
+  <% if @specialist.treatments.blank? %>
+    <p>No treatments yet</p>
+    <% end %>
   <% @specialist.treatments.each do |treatment| %>
   <li><%= treatment.description %>; category:<%= treatment.subcategory.name %>; €<%= treatment.price %>; <%= treatment.duration %>min</li>
   <% end %>
 </ul>
 <%= link_to 'add a treatment', new_specialist_treatment_path(@specialist), class: 'btn btn-primary' %>
+<% if @specialist.user == current_user %>
+  <%= link_to 'update my profile', profile_path, class: 'btn btn-primary' %>
+<% end %>
