@@ -2,3 +2,11 @@
 <p> <%= @specialist.user.email %> </p>
 <p><%= @specialist.bio %></p>
 <p><%= @specialist.work_experience %></p>
+
+<h2>treatments:</h2>
+<ul>
+  <% @specialist.treatments.each do |treatment| %>
+  <li><%= treatment.description %>; category:<%= treatment.subcategory.name %>; €<%= treatment.price %>; <%= treatment.duration %>min</li>
+  <% end %>
+</ul>
+<%= link_to 'add a treatment', new_specialist_treatment_path(@specialist), class: 'btn btn-primary' %>

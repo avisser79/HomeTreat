@@ -1,0 +1,9 @@
+<%= simple_form_for [:specialist, @treatment] do |f| %>
+    <%= f.input :description %>
+    <%= f.input :duration %>
+    <%= f.input :segment %>
+    <%= f.input :price %>
+    <%= f.association :subcategory %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
+
