@@ -4,7 +4,7 @@
   margin: 50px;
   border: 1px solid grey;
   border-top: 15px solid $lightblue;
-
+  position: relative;
 }
 
 .specialist_card-photo {
@@ -43,4 +43,19 @@
 
 .specialist_card-bio {
   color: $gray;
+}
+
+.specialist_card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+
+.specialist_card-link:hover {
+  opacity: 0.1;
 }
