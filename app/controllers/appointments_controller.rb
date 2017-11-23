@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
   # geen index nodig
  # def index
  #   @appointments = Appointment.all
