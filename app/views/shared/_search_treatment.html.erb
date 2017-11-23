@@ -1,5 +1,5 @@
-  <select class="selectpicker fa raleway" data-width="160px" name='subcategory[]' multiple title='&#xf002; Treatments'>
-    <option data-icon="glyphicon-search" value="" disabled>Treatments</option>
+  <select class="selectpicker fa raleway" data-width="150px" data-dropup-auto="false" name='subcategory[]' multiple title='&#xf002; Treatment'>
+    <option data-icon="glyphicon-search" value="" disabled>Treatment</option>
     <% Category.all.each do |category| %>
     <optgroup label="<%= category.name %>">
       <% category.subcategories.each do |subcategory| %>
@@ -8,4 +8,3 @@
     </optgroup>
     <% end %>
   </select>
-
