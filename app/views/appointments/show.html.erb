@@ -1,3 +1,10 @@
-<h1><%= @appointment.location %></h1>
-<p> <%= @appointment.status %></p>
-<p> <%= @appointment.start_time %> </p>
+<h1>Overview of your appointment:</h1>
+<p>You have an appointment with <%= @appointment.specialist.full_name %></p>
+<p>At: <%= @appointment.start_time %></p>
+<p>In: <%= @appointment.location %> </p>
+<p>For these treatments:</p>
+<ul>
+  <% @appointment.treatments.each do |treatment| %>
+    <li><%= treatment.description %></li>
+  <% end %>
+</ul>
