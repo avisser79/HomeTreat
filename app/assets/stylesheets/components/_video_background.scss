@@ -1,0 +1,32 @@
+.videobanner {
+  z-index: -2;
+  text-align: center;
+  height: calc(100vh - 70px);
+  // /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gradient {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  background-image: radial-gradient(rgba(201,74,1,0.1), rgba(201,74,1,0.2), rgba(1,104,201,0.5));
+}
+.video {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ z-index: -2;
+ transform: translate(-50%, -50%);
+ background: url(ht_banner.jpg) no-repeat;
+ background-size: cover;
+}
