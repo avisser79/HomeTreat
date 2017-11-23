@@ -1,7 +1,11 @@
 class SpecialistPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      if user.admin
+        scope.all
+      else
+        scope.joins(:user).merge(User.where(:admin => false))
+      end
     end
   end
 
