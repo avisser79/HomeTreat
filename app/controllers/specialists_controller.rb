@@ -18,15 +18,28 @@ class SpecialistsController < ApplicationController
     @specialist.user = current_user
     if @specialist.save
       @specialist.user.role = 'specialist'
-      redirect_to specialist_path(@specialist)
+      redirect_to profile_path
     else
       render :new
+    end
+  end
+
+  def edit
+    @specialist = Specialist.find(params[:id])
+  end
+
+  def update
+    @specialist = Specialist.find(params[:id])
+    if @specialist.update(specialist_params)
+      redirect_to profile_path
+    else
+      render :edit
     end
   end
 
   private
 
   def specialist_params
-    params.require(:specialist).permit(:bio, :work_experience)
+    params.require(:specialist).permit(:bio, :work_experience, :specialization)
   end
 end
