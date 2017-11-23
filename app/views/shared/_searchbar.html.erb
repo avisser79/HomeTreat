@@ -1,4 +1,19 @@
 <div class="searchbar text-center">
-  Here comes the searchbar with 4 search fields
+  <%= link_to "#", id: "search-active", class: "visible-xs" do %>
+  <i class="fa fa-search"></i>
+  <% end %>
+  <form method='GET' id="search-form" action="<%= specialists_path %>" class="hidden-xs">
+    <div class="field-wrapper">
+      <%= render 'shared/search_treatment' %>
+      <%= render 'shared/search_date' %>
+      <%= render 'shared/search_price' %>
+      <%= render 'shared/search_location' %>
+      <button type="submit" class="btn-search"><i class="fa fa-search btn-search-circle"></i>  Search</button>
+    </div>
+    <div>
+
+
+    </div>
+  </form>
 </div>
 
