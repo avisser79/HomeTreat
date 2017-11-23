@@ -59,14 +59,16 @@ subcategories_body.each do |subcategory_body|
   subcategory_a.save
 end
 
+url = 'http://res.cloudinary.com/dkmxtdusq/image/upload/v1511358012/cmqgaa6j91patwcnynmw.jpg'
+
 # admin account
-admin = User.new({ first_name: Hometreat, last_name: Admin, email: admin@hometreat.com })
+admin = User.new({ first_name: 'Hometreat', last_name: 'Admin', email: 'admin@hometreat.com' })
+admin.remote_photo_url = url
 admin.password = 'password'
 admin.password_confirmation = 'password'
 admin.admin = true
 admin.save!
 
-url = 'http://res.cloudinary.com/dkmxtdusq/image/upload/v1511358012/cmqgaa6j91patwcnynmw.jpg'
 # user seed
 puts 'creating users'
 20.times do
