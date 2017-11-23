@@ -25,7 +25,7 @@
   transition: all 0.3s ease-in-out;
 }
 .footer-social a:hover {
-  color: $blue;
+  color: $lightblue;
   font-weight: bold;
   transform: scale(1.1);
 }
@@ -36,11 +36,11 @@
 }
 .footer-about a {
   color: $white;
-  font-size: 24px;
+  font-size: 25px;
   transition: all 0.3s ease-in-out;
 }
 .footer-about a:hover {
-  color: $blue;
+  color: $lightblue;
   font-weight: bold;
-  transform: scale(1.1);
+  font-size:26px;
 }
