@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 # no namespacing?
-  resources :appointments
   resource :profile, except: [:destroy]
   resources :specialists, except: [:destroy] do
     resources :treatments, shallow: true, except: [:index, :show]
+    resources :appointments, only: [:new, :create]
   end
+  resources :appointments, except: [:new, :create]
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
