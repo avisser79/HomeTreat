@@ -1,0 +1,10 @@
+  <select class="selectpicker fa raleway" data-width="65px" data-dropup-auto="false" name='subcategory[]' multiple title='&#xf002;'>
+    <option data-icon="glyphicon-search" value="" disabled>Treatment</option>
+    <% Category.all.each do |category| %>
+    <optgroup label="<%= category.name %>">
+      <% category.subcategories.each do |subcategory| %>
+      <option value="<%= subcategory.name %>" ><%= subcategory.name %></option>
+      <% end %>
+    </optgroup>
+    <% end %>
+  </select>

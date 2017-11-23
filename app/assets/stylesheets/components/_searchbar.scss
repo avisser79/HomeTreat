@@ -1,46 +1,43 @@
 /* ---------->>> GLOBAL SEARCH BAR <<<-----------*/
-textarea:hover,
-input:hover,
-textarea:active,
-input:active,
-textarea:focus,
-input:focus,
-button:focus,
-button:active,
-button:hover,
-label:focus,
-.btn:active,
-.btn.active
-{
-    outline:0px !important;
-    -webkit-appearance:none;
-}
 
 // wrapper after login search BAR
-@media(max-width: 768px) {
-  .field-wrapper {
-    flex-direction: column;
-  }
-}
+// @media(max-width: 768px) {
+//   .field-wrapper {
+//     flex-direction: column;
+//   }
+// }
 
-@media(min-width: 768px) {
-  .field-wrapper {
-    flex-direction: row;
-  }
-}
+// @media(min-width: 768px) {
+//   .field-wrapper {
+//     flex-direction: row;
+//   }
+// }
 
-// wrapper homepage search BLOCKS
-@media(max-width: 768px) {
-  .input-wrapper {
-    flex-direction: column;
-  }
-}
+// // wrapper homepage search BLOCKS
+// @media(max-width: 768px) {
+//   .input-wrapper {
+//     flex-direction: column;
+//   }
+// }
 
-@media(min-width: 768px) {
-  .input-wrapper {
-    flex-direction: row;
-  }
-}
+// @media(min-width: 768px) {
+//   .input-wrapper {
+//     flex-direction: row;
+//   }
+// }
+
+// // FOR MOBILE wrapper after login search BAR
+// @media(max-width: 768px) {
+//   .field-wrapper {
+//     flex-direction: column;
+//   }
+// }
+
+// @media(min-width: 768px) {
+//   .field-wrapper {
+//     flex-direction: row;
+//   }
+// }
 
 .searchbar {
   display: flex;
@@ -70,21 +67,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', end
 
 /* ---------->>> GLOBAL SEARCH FIELDS <<<-----------*/
 
-.form-control:focus {
-  border-color: #450000;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 10px rgba(69, 0, 0, 0.8);
-}
-
-.form-control::-webkit-input-placeholder { color: darkRed; }  /* WebKit, Blink, Edge */
-.form-control:-moz-placeholder { color: darkRed; }  /* Mozilla Firefox 4 to 18 */
-.form-control::-moz-placeholder { color: darkRed; }  /* Mozilla Firefox 19+ */
-.form-control:-ms-input-placeholder { color: darkRed; }  /* Internet Explorer 10-11 */
-.form-control::-ms-input-placeholder { color: darkRed; }  /* Microsoft Edge */
-
-.form-control action:hover {
-     background: #450000 !important;
- }
-
 
 .input-wrapper {
   z-index: 5;
@@ -104,6 +86,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', end
 // BOOTSTRAP OVERRIDES FOR TREATMENTS SEARCH FIELD! -> -> ->
 
 .bootstrap-select .btn {
+  margin-top:2px;
+  margin-bottom:2px;
   background-color: $white;
   border-style: solid;
   border-top: none;
@@ -148,19 +132,49 @@ button, input, optgroup, select, textarea {
   font-size: 16px;
   color: $gray;
 }
+
+.btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+  background-color: $pink;
+}
+
+
+
 .bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus, .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
   color: $blue !important;
-  font-weight: 400;
   outline: 0px !important;
   // text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder {
+ background: $white;
+ transition: all 0.2s ease-in-out;
+ font-weight: 400;
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus  {
+  background: $pink;
+  font-weight: 600;
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+  font-weight: 600;
+}
+
+
 .glyphicon-ok:before {
   content: "\e013";
   color: $blue;
 }
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-  text-decoration: none;
+
+.dropdown-menu > li > a {
   color: $gray;
+  background-color: $white;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  color: $black;
+  text-decoration: none;
   background-color: $pink;
   outline: 0px !important;
 }
