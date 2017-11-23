@@ -1,20 +1,54 @@
+/* ---------->>> GLOBAL TEXT DECO <<<-----------*/
+
+a {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+/* ---------->>> TEXT CENTER <<<-----------*/
+.text-center {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
 /* ---------->>> TEXT HOME PAGE <<<-----------*/
 
 // HomeTreat
-h1 #hometreat_header {
-  color: red;
+#hometreat_header {
   text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px 7px rgba(0, 0, 0, 0.8);
+  z-index: 2;
 }
 
 // Get your treatment. Anytime. Anywhere.
-p #hometreat_usp {
-  color: white;
+#hometreat_usp {
+  color: $white;
   text-align: center;
+  font-size: 25px;
+  font-weight: lighter;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  text-shadow: 0px 1px 7px rgba(0, 0, 0, 0.8);
+  z-index: 2;
 }
 
-
 /* ---------->>> TEXT SPECIALISTS INDEX <<<-----------*/
-
 
 #specialist_category {
   color: gray;

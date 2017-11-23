@@ -1,4 +1,18 @@
 // Import your components CSS files here.
-@import "alert";
+
+// global components
+@import "texts"; // styling headers and paragraphs, use ID tags
 @import "navbar";
-@import "specialist_card"
+@import "searchbar";
+@import "footer";
+@import "buttons";
+
+// page specific components
+@import "video_background"; // home page and about page
+@import "specialist_card"; // specialists index page
+
+// flash components
+@import "alert";
+
+
+

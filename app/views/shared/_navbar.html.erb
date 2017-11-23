@@ -1,32 +1,29 @@
-<div class="navbar-wagon">
+<% if user_signed_in? %>
+<!-- Render searchbar -->
+<%= render 'shared/searchbar' %>
+<% else %>
+<!-- Don't render searchbar -->
+<% end %>
+
+      <div class="navbar-hometreat">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= link_to root_path, class: "navbar-hometreat-brand" do %>
     <%= image_tag "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-hometreat-right">
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
       <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
+      <div class="navbar-hometreat-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-hometreat-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-hometreat-dropdown-menu">
             <li>
               <%= link_to profile_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
             <li>
@@ -38,21 +35,26 @@
         </div>
       </div>
     <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+    <!-- Login link (when logged out) -->
+    <!-- // Tried to add fontawesome sign-in icon, not working yet though -->
+     <!--  <i class="fa fa-sign-in"></i> -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-hometreat-item navbar-hometreat-login" %>
     <% end %>
   </div>
 
+
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
+  <!-- NOT APPLICABLE -->
+  <!-- <div class="navbar-hometreat-item hidden-md hidden-lg">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <ul class="dropdown-menu dropdown-menu-right navbar-hometreat-dropdown-menu">
         <li><a href="#">Some mobile link</a></li>
         <li><a href="#">Other one</a></li>
         <li><a href="#">Other one</a></li>
       </ul>
     </div>
-  </div>
+  </div> -->
 </div>
 
