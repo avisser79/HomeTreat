@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Order.delete_all
+Appointment.delete_all
 Treatment.delete_all
 Specialist.delete_all
 Subcategory.delete_all
@@ -59,8 +61,8 @@ subcategories_body.each do |subcategory_body|
   subcategory_a.save
 end
 
-url = 'http://res.cloudinary.com/dkmxtdusq/image/upload/v1511358012/cmqgaa6j91patwcnynmw.jpg'
-
+urls = ["http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539041/wout_urs51l.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539043/sebastiaan_lklt4c.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539041/roos_wmezxx.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539040/pien_lbyojx.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539039/nora_po3bqv.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539039/noah_eqcmyu.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539038/mina_whq8xi.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539038/melle_ca6egj.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539038/maarten_jwht80.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539038/lisa_s6j2p3.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539038/janne_vl8vnm.jpg", "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539039/cato_kd3e0t.jpg"]
+url = "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511532826/srsa1duxqqiv7oceozoe.jpg"
 # admin account
 admin = User.new({ first_name: 'Hometreat', last_name: 'Admin', email: 'admin@hometreat.com' })
 admin.remote_photo_url = url
@@ -76,7 +78,7 @@ puts 'creating users'
   user.email = Faker::Internet.email
   user.password = 'password'
   user.password_confirmation = 'password'
-  user.remote_photo_url = url
+  user.remote_photo_url = urls.sample
   user.save!
 end
 
