@@ -1,19 +1,30 @@
 <div class="searchbar text-center">
-  <%= link_to "#", id: "search-active", class: "visible-xs" do %>
+
+  <!-- SEARCHBAR FOR MOBILE STILL TO BE CREATED -->
+ <!--  <%= link_to "#", id: "search-active", class: "visible-xs" do %>
   <i class="fa fa-search"></i>
-  <% end %>
+  <% end %> -->
+
   <form method='GET' id="search-form" action="<%= specialists_path %>" class="hidden-xs">
     <div class="field-wrapper">
       <%= render 'shared/search_treatment' %>
       <%= render 'shared/search_date' %>
       <%= render 'shared/search_price' %>
       <%= render 'shared/search_location' %>
-      <button type="submit" class="btn-search"><i class="fa fa-search btn-search-circle"></i>  Search</button>
-    </div>
-    <div>
-
-
+      <button type="submit" class="btn-search hidden-xs"><i class="fa fa-search btn-search-circle"></i>  Search</button>
     </div>
   </form>
+
+  <form method='GET' id="search-form" action="<%= specialists_path %>" class="visible-xs">
+    <div class="field-wrapper-mobile">
+      <%= render 'shared/search_treatment_mobile' %>
+      <%= render 'shared/search_date_mobile' %>
+      <%= render 'shared/search_price_mobile' %>
+      <%= render 'shared/search_location_mobile' %>
+      <button type="submit" class="btn-search hidden-xs"><i class="fa fa-search btn-search-circle"></i>  Search</button>
+    </div>
+  </form>
+
+
 </div>
 
