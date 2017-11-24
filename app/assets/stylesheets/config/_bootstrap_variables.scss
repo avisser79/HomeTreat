@@ -26,3 +26,8 @@ $border-radius-small: 8px;
 $grid-gutter-width: 20px;
 $font-family: raleway;
 $body-font: raleway;
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
