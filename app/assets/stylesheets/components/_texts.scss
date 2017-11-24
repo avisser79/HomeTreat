@@ -16,23 +16,6 @@ a:visited {
   text-decoration: none;
 }
 
-textarea:hover,
-input:hover,
-textarea:active,
-input:active,
-textarea:focus,
-input:focus,
-button:focus,
-button:active,
-button:hover,
-label:focus,
-.btn:active,
-.btn.active
-{
-    outline:0px !important;
-    -webkit-appearance:none;
-}
-
 /* ---------->>> TEXT CENTER <<<-----------*/
 .text-center {
   text-align: center;
@@ -82,6 +65,13 @@ p {
   font-size: 16px;
 }
 
+#create_appointment {
+  h1 {
+    color: gray;
+    font-family: Raleway;
+    font-size: 12px;
+  }
+}
 
 
 
