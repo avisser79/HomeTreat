@@ -7,7 +7,7 @@
       </h2>
       <%= simple_form_for [:specialist, @appointment] do |f| %>
              <%= f.input :location %>
-                <%= f.input :status, collection: ["Open", "Closed"] %>
+                <%= f.input :status %>
                 <%= f.input :start_time %>
 
                 <%= f.association :treatments, include_hidden: false, collection: Treatment.where(specialist: @specialist), label_method: :description, value_method: :id, as: :check_boxes %>
