@@ -1,19 +1,43 @@
 /* ---------->>> GLOBAL SEARCH BAR <<<-----------*/
 
+// wrapper after login search BAR
+// @media(max-width: 768px) {
+//   .field-wrapper {
+//     flex-direction: column;
+//   }
+// }
 
-@media(max-width: 768px) {
-  .field-wrapper {
-    flex-direction: column;
-  }
-}
+// @media(min-width: 768px) {
+//   .field-wrapper {
+//     flex-direction: row;
+//   }
+// }
 
-@media(min-width: 768px) {
-  .field-wrapper {
-    flex-direction: row;
-  }
-}
+// // wrapper homepage search BLOCKS
+// @media(max-width: 768px) {
+//   .input-wrapper {
+//     flex-direction: column;
+//   }
+// }
 
+// @media(min-width: 768px) {
+//   .input-wrapper {
+//     flex-direction: row;
+//   }
+// }
 
+// // FOR MOBILE wrapper after login search BAR
+// @media(max-width: 768px) {
+//   .field-wrapper {
+//     flex-direction: column;
+//   }
+// }
+
+// @media(min-width: 768px) {
+//   .field-wrapper {
+//     flex-direction: row;
+//   }
+// }
 
 .searchbar {
   display: flex;
@@ -22,9 +46,15 @@
   top: 100px;
   z-index: 2;
 
-  background: $mediumblue;
+// GRADIENT FOR BACKGROUND COLOR SEARCH BAR
+  background: rgb(64,135,220); /* Old browsers */
+background: -moz-linear-gradient(left, rgba(64,135,220,1) 0%, rgba(64,135,220,1) 0%, rgba(64,135,220,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 75%, rgba(64,135,220,1) 100%, rgba(64,135,220,1) 100%, rgba(64,135,220,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', endColorstr='#4087dc',GradientType=1 ); /* IE6-9 */
+
   color: $white;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   transition: all 0.3s ease;
   padding: 0px 20px;
   display: flex;
@@ -36,35 +66,62 @@
 }
 
 /* ---------->>> GLOBAL SEARCH FIELDS <<<-----------*/
-.no-gutter > [class*='col-'] {
-  padding-right:0;
-  padding-left:0;
+
+
+.input-wrapper {
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .field-wrapper {
-  z-index:5;
+  z-index: 5;
   display: flex;
   justify-content: center;
-  // box-shadow: inset 0px 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.row-small {
-  margin-right: -5px;
-  margin-left: -5px;
-}
-.row-small > .col,
-.row-small > [class*="col-"] {
-  padding-right: 5px;
-  padding-left: 5px;
-}
+
 
 // BOOTSTRAP OVERRIDES FOR TREATMENTS SEARCH FIELD! -> -> ->
+
+.bootstrap-select .btn {
+  margin-top:2px;
+  margin-bottom:2px;
+  background-color: $white;
+  border-style: solid;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+}
+
+.input-group.first {
+  z-index: 1000;
+}
 
 button, input, optgroup, select, textarea {
   font-family: raleway, fontawesome;
   // font-weight: bold;
   font-size: 18px;
 }
+
+.bootstrap-select {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+
+.bootstrap-select-special .bootstrap-select {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
+
 .dropdown-header {
   font-family: raleway;
   font-size: 20px;
@@ -75,19 +132,51 @@ button, input, optgroup, select, textarea {
   font-size: 16px;
   color: $gray;
 }
+
+.btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+  background-color: $pink;
+}
+
+
+
 .bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus, .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
   color: $blue !important;
-  font-weight: 400;
+  outline: 0px !important;
   // text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder {
+ background: $white;
+ transition: all 0.2s ease-in-out;
+ font-weight: 400;
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus  {
+  background: $pink;
+  font-weight: 600;
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
+  font-weight: 600;
+}
+
+
 .glyphicon-ok:before {
   content: "\e013";
   color: $blue;
 }
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-  text-decoration: none;
+
+.dropdown-menu > li > a {
   color: $gray;
+  background-color: $white;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  color: $black;
+  text-decoration: none;
   background-color: $pink;
+  outline: 0px !important;
 }
 
 .bootstrap-select.btn-group .dropdown-toggle .filter-option {
