@@ -1,10 +1,55 @@
-<h1>Overview of your appointment:</h1>
-<p>You have an appointment with <%= @appointment.specialist.full_name %></p>
-<p>At: <%= @appointment.start_time %></p>
-<p>In: <%= @appointment.location %> </p>
-<p>For these treatments:</p>
-<ul>
-  <% @appointment.treatments.each do |treatment| %>
-    <li><%= treatment.description %></li>
-  <% end %>
-</ul>
+
+<div class="container">
+  <div class="row confirm-booking-summary">
+    <p>Please confirm your appointment with <%= @appointment.specialist.full_name %> at <%= @appointment.start_time %> in <%= @appointment.location %></p>
+    </div>
+
+    <div class="row">
+      <div class="columns confirm-booking-left-box">
+        <ul class="price">
+          <li class="grey">Treatment</li>
+          <% @appointment.treatments.each do |treatment| %>
+          <li><%= treatment.description %></li>
+          <% end %>
+          <li>VAT (6%)</li>
+          <li><strong>Total price</strong></li>
+        </ul>
+      </div>
+
+      <div class="columns">
+        <ul class="price">
+          <li class="grey">Duration</li>
+          <% @appointment.treatments.each do |treatment| %>
+          <li><%= treatment.duration %> min</li>
+          <% end %>
+          <li> <br></li>
+          <li> <br></li>
+        </ul>
+      </div>
+
+      <div class="columns">
+        <ul class="price">
+          <li class="grey">Price</li>
+          <% @appointment.treatments.each do |treatment| %>
+          <li>€ <%= treatment.price %></li>
+          <% end %>
+
+          <% treatment_vat_total = 0 %>
+          <% @appointment.treatments.each do |treatment| %>
+          <% treatment_vat_total += treatment.price * 0.06 %>
+          <% end %>
+          <li>€ <%= treatment_vat_total.round(2) %></li>
+
+          <% treatment_total = 0 %>
+          <% @appointment.treatments.each do |treatment| %>
+          <% treatment_total += treatment.price * 1.06 %>
+          <% end %>
+          <li><strong>€ <%= treatment_total.round(2) %></strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <a href="#" class="button button-appointment-form" >Confirm booking</a>
+    </div>
+  </div>
