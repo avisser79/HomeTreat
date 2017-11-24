@@ -1,6 +1,6 @@
 class Appointment < ApplicationRecord
   belongs_to :user
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :treatments, through: :orders
 
   validates :location, presence: true

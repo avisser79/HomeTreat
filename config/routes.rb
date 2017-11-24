@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 # no namespacing?
-  resource :profile, except: [:destroy]
+  resource :profile, except: [:destroy] do
+    resources :appointments, only: [:index]
+  end
   resources :specialists, except: [:destroy] do
     resources :treatments, shallow: true, except: [:index, :show]
     resources :appointments, only: [:new, :create]
