@@ -1,44 +1,5 @@
 /* ---------->>> GLOBAL SEARCH BAR <<<-----------*/
 
-// wrapper after login search BAR
-// @media(max-width: 768px) {
-//   .field-wrapper {
-//     flex-direction: column;
-//   }
-// }
-
-// @media(min-width: 768px) {
-//   .field-wrapper {
-//     flex-direction: row;
-//   }
-// }
-
-// // wrapper homepage search BLOCKS
-// @media(max-width: 768px) {
-//   .input-wrapper {
-//     flex-direction: column;
-//   }
-// }
-
-// @media(min-width: 768px) {
-//   .input-wrapper {
-//     flex-direction: row;
-//   }
-// }
-
-// // FOR MOBILE wrapper after login search BAR
-// @media(max-width: 768px) {
-//   .field-wrapper {
-//     flex-direction: column;
-//   }
-// }
-
-// @media(min-width: 768px) {
-//   .field-wrapper {
-//     flex-direction: row;
-//   }
-// }
-
 .searchbar {
   display: flex;
   justify-content: center;
@@ -47,14 +8,13 @@
   z-index: 2;
 
 // GRADIENT FOR BACKGROUND COLOR SEARCH BAR
-  background: rgb(64,135,220); /* Old browsers */
+background: rgb(64,135,220); /* Old browsers */
 background: -moz-linear-gradient(left, rgba(64,135,220,1) 0%, rgba(64,135,220,1) 0%, rgba(64,135,220,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 75%, rgba(64,135,220,1) 100%, rgba(64,135,220,1) 100%, rgba(64,135,220,1) 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(left, rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to right, rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', endColorstr='#4087dc',GradientType=1 ); /* IE6-9 */
 
   color: $white;
-  // text-transform: uppercase;
   transition: all 0.3s ease;
   padding: 0px 20px;
   display: flex;
@@ -62,8 +22,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', end
   width: 100%;
   font-family: Raleway;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
-  // text-align: center;
 }
+
 
 /* ---------->>> GLOBAL SEARCH FIELDS <<<-----------*/
 
@@ -81,9 +41,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', end
   justify-content: center;
 }
 
-
-
-// BOOTSTRAP OVERRIDES FOR TREATMENTS SEARCH FIELD! -> -> ->
+// BOOTSTRAP OVERRIDES FOR SEARCH FIELDS
 
 .bootstrap-select .btn {
   margin-top:2px;
@@ -115,7 +73,6 @@ button, input, optgroup, select, textarea {
   margin-right: 8px;
 }
 
-
 .bootstrap-select-special .bootstrap-select {
   margin-left: 25px;
   margin-right: 25px;
@@ -137,8 +94,6 @@ button, input, optgroup, select, textarea {
   background-color: $pink;
 }
 
-
-
 .bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus, .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
   color: $blue !important;
   outline: 0px !important;
@@ -149,6 +104,7 @@ button, input, optgroup, select, textarea {
  background: $white;
  transition: all 0.2s ease-in-out;
  font-weight: 400;
+ z-index:5;
 }
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus  {
@@ -159,7 +115,6 @@ button, input, optgroup, select, textarea {
 .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
   font-weight: 600;
 }
-
 
 .glyphicon-ok:before {
   content: "\e013";
@@ -182,66 +137,3 @@ button, input, optgroup, select, textarea {
 .bootstrap-select.btn-group .dropdown-toggle .filter-option {
   text-align: center !important;
 }
-
-// // CHANGE CONTAINER WIDTH
-// @media (min-width: 768px) {
-// .custom-container{
-//     width:300px;
-// }}
-
-// @media (min-width: 992px) {
-// .custom-container{
-//     width:600px;
-// }}
-
-// @media (min-width: 1200px) {
-// .custom-container{
-//     width:600px;
-// }}
-
-
-// TO DO STYLING DROP DOWN SEARCH FIELDS
-
-/* Dropdown search fields */
-// .searchbar-dropdown {
-//   margin-top: 15px;
-//   box-shadow: 1px 1px 4px #E6E6E6;
-//   border-color: #E6E6E6;
-// }
-// .searchbar-dropdown li > a {
-//   transition: color 0.3s ease;
-//   font-weight: lighter !important;
-//   color: #999999 !important;
-//   font-size: 15px !important;
-//   line-height: 22px !important;
-//   padding: 10px 20px;
-// }
-// .searchbar-dropdown li > a:hover {
-//   background: transparent !important;
-//   color: black !important;
-// }
-// .searchbar-dropdown:before {
-//   content: ' ';
-//   height: 10px;
-//   width: 10px;
-//   position: absolute;
-//   right: 10px;
-//   top: -6px;
-//   background-color: white;
-//   transform: rotate(45deg);
-//   border-left: 1px solid #E6E6E6;
-//   border-top: 1px solid #E6E6E6;
-// }
-
-// /* Right section */
-// .searchbar-right {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// }
-
-// /* searchbar item */
-// .searchbar-item {
-//   cursor: pointer;
-//   padding: 0 20px;
-// }

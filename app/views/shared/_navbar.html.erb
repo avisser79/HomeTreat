@@ -1,16 +1,15 @@
-<%= render 'shared/searchbar' %>
 
-      <div class="navbar-hometreat">
+<div class="navbar-hometreat" id="nav">
+
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-hometreat-brand" do %>
-    <%= image_tag "logo.png" %>
+  <%= image_tag "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-hometreat-right">
 
     <% if user_signed_in? %>
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-hometreat-item">
         <div class="dropdown">
@@ -32,24 +31,14 @@
     <% else %>
 
     <!-- Login link (when logged out) -->
-    <!-- // Tried to add fontawesome sign-in icon, not working yet though -->
-     <!--  <i class="fa fa-sign-in"></i> -->
       <%= link_to t(".sign_in", default: ""), new_user_session_path, class: "navbar-hometreat-item navbar-hometreat-login" %>
     <% end %>
   </div>
-
-
-  <!-- Dropdown list appearing on mobile only -->
-  <!-- NOT APPLICABLE -->
-  <!-- <div class="navbar-hometreat-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-hometreat-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
-  </div> -->
 </div>
 
+<% if user_signed_in? == true %>
+  <script type="text/javascript">
+document.getElementById("nav").style.backgroundImage = "url(<%= asset_path('ht_navbar.jpg') %>)"
+</script>
+  <%= render 'shared/searchbar' %>
+<% end %>

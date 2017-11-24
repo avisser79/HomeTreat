@@ -9,7 +9,9 @@
 @import "form";
 
 // page specific components
+@import "photo_background"; // navbar and footer after login
 @import "video_background"; // home page and about page
+@import "gradient"; // gradient to put on video and image bg
 @import "specialist_card"; // specialists index page
 @import "confirm_booking"; // confirm booking page
 

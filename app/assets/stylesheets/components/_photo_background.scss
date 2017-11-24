@@ -1,0 +1,14 @@
+// .photobanner body {
+//   background-image: url("/assets/images/ht_navbar_wood.jpg"), radial-gradient(rgba(201,74,1,0.1), rgba(201,74,1,0.2), rgba(1,104,201,0.5));
+// }
+
+.photobanner {
+  background-image: url("/assets/images/ht_navbar_wood.jpg"), radial-gradient(rgba(201,74,1,0.1), rgba(201,74,1,0.2), rgba(1,104,201,0.5));
+  background-size: cover !important;
+  z-index: -2;
+  text-align: center;
+  height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
