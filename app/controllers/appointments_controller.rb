@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
   # geen index nodig
  # def index
  #   @appointments = Appointment.all
@@ -6,14 +8,18 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @specialist = Specialist.find(params[:specialist_id])
   end
 
   def create
     @appointment = Appointment.new(appointment_params)
-    @appointment.user_id = current_user
+    @appointment.user = current_user
+    tr_ids = params[:appointment][:treatment_ids]
+    @appointment.treatments << Treatment.where(id: tr_ids)
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
+      @specialist = Specialist.find(params[:specialist_id])
       render :new
     end
   end
@@ -29,8 +35,6 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
     if @appointment.update(appointment_params)
-      # appointment_path heeft params nodig
-      # redirect_to appointment_path
       redirect_to appointment_path(@appointment)
     else
       render :edit
@@ -42,6 +46,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-   params.require(:appointment).permit(:location, :status, :treatment, :start_time)
+   params.require(:appointment).permit(:location, :status, :treatment_ids, :start_time)
   end
 end

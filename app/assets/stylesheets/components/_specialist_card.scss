@@ -1,48 +1,88 @@
+.specialist_card-container {
+  padding: 0 100px;
+  padding-top: 0px;
+  margin-top: -40px;
+}
+
 .specialist_card {
   display: flex;
   justify-content: space-between;
-  margin: 50px;
-  border: 1px solid grey;
+  margin: 30px auto;
   border-top: 15px solid $lightblue;
   position: relative;
+  width: 425px;
+  h4, h2, p {
+    margin: 0;
+  }
 }
 
 .specialist_card-photo {
   flex: 0 0 40%;
   background-size: cover;
   background-position: center;
+  font-family: Raleway;
+  height: 175px;
+  width: 175px;
 }
 
 .specialist_card-info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 20px;
+  height: 175px;
+  width: 250px;
+  padding-left: 20px;
+  margin-top: 12px;
 }
 
 .specialist_card-info-header {
   display: flex;
+  margin: 0;
   justify-content: space-between;
 }
 
 .specialist_card-specialization {
   color: $gray;
+  width: 150px;
+  margin: 0;
+  h4 {
+    font-size: 13px;
+  }
 }
 
 .specialist_card-hourly {
+  color: $gray;
+  margin: 0;
+  h4 {
+    font-size: 13px;
+  }
 
 }
 
 .specialist_card-rating {
-
+  font-size: 12px;
+  margin: 0;
+  p {
+    text-align: left;
+  }
 }
 
 .specialist_card-name {
   color: $blue;
+  margin: 0;
+  h2 {
+    font-size: 18px;
+  }
 }
 
 .specialist_card-bio {
   color: $gray;
+  font-size: 12px;
+  margin: 0;
+  flex: 0 0 50px;
+  p {
+    text-align: justify;
+  }
 }
 
 .specialist_card-link {
@@ -59,3 +99,10 @@
 .specialist_card-link:hover {
   opacity: 0.1;
 }
+
+// .row {
+//     width: 1100px;
+//     margin-left: -110px;
+//     margin-right: -4px;
+//     margin-top: -80px;
+// }

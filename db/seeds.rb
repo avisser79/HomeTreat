@@ -60,6 +60,15 @@ subcategories_body.each do |subcategory_body|
 end
 
 url = 'http://res.cloudinary.com/dkmxtdusq/image/upload/v1511358012/cmqgaa6j91patwcnynmw.jpg'
+
+# admin account
+admin = User.new({ first_name: 'Hometreat', last_name: 'Admin', email: 'admin@hometreat.com' })
+admin.remote_photo_url = url
+admin.password = 'password'
+admin.password_confirmation = 'password'
+admin.admin = true
+admin.save!
+
 # user seed
 puts 'creating users'
 20.times do
@@ -80,7 +89,7 @@ puts 'upgrading half the users to specialists'
 User.take(10).each do |user|
   specialist = Specialist.new({ bio: bios.sample, work_experience: 'Did it once, looked good'})
   specialist.user = user
-  user.role = 'specialist'
+  user.is_specialist = true
   user.save
   specialist.specialization = "#{categories.sample.name} specialist"
   specialist.hourly_rate = (20..50).to_a.sample

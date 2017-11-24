@@ -8,22 +8,22 @@
   <% end %>
 </div>
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-<p>Role: <%= @user.role %></p>
+<p>Role: <%= @user.is_specialist ? 'Specialist' : 'Client' %></p>
 <p>email: <%= @user.email %></p>
 <%= link_to 'update profile', edit_profile_path, class: 'btn btn-primary' %>
-<% if @user.role == 'client' && @user.full_profile? %>
+<% if !@user.is_specialist && @user.full_profile? %>
 <%= link_to 'register as specialist', new_specialist_path, class: 'btn btn-primary' %>
 <% end %>
 
 <!-- extra info if user is specialist -->
-<% if @user.role == 'specialist' %>
+<% if @user.is_specialist %>
 <% specialist = @user.specialist %>
 <h2>Specialist profile info:</h2>
 <p>Specialization: <%= specialist.specialization %></p>
 <p>Work experience: <%= specialist.work_experience %></p>
 <p>Bio: <%= specialist.bio %></p>
 <h2>Treatments: </h2>
-<% if specialist.treatments %>
+<% unless specialist.treatments.blank? %>
 <ul>
   <% specialist.treatments.each do |treatment| %>
   <li><%= treatment.description %>; category:<%= treatment.subcategory.name %>; €<%= treatment.price %>; <%= treatment.duration %>min</li>
@@ -32,6 +32,7 @@
 <% else %>
 <p>No treatments yet</p>
 <% end %>
+<%= link_to 'add a treatment', new_specialist_treatment_path(specialist), class: 'btn btn-primary' %>
 <%= link_to 'update specialist profile', edit_specialist_path(specialist), class: 'btn btn-primary' %>
 <!-- link to public (styled) profile -->
 <%= link_to 'see my public profile', specialist_path(specialist) %>

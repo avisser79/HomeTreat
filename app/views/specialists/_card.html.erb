@@ -4,7 +4,7 @@
   <div class="specialist_card-info">
     <div class="specialist_card-info-header">
       <div class="specialist_card-specialization">
-        <h4><%= specialist.specialization %></h4>
+        <h4><strong><%= specialist.specialization.upcase %></strong></h4>
       </div>
       <div class="specialist_card-hourly">
         <h4><%= specialist.hourly_rate %> €/min</h4>
@@ -29,5 +29,5 @@
       <p><%= specialist.bio %></p>
     </div>
   </div>
-  <%= link_to "", specialist_path(specialist), class: "card-link" %>
+  <%= link_to "", specialist_path(specialist), class: "specialist_card-link" %>
 </div>

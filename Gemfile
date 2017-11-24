@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
-# user login
+# authorization/authentication
 gem 'devise'
+gem 'pundit'
 
 # assets
 gem 'faker'

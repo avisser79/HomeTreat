@@ -1,4 +1,7 @@
 class TreatmentsController < ApplicationController
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
+
   def new
     @treatment = Treatment.new
   end
