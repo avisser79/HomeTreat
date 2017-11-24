@@ -2,7 +2,6 @@
 .navbar-hometreat {
   position: absolute;
   top: 0;
-  // text-transform: uppercase;
   color: $blue;
   z-index: 3;
   height: 100px;
@@ -15,6 +14,14 @@
   width: 100%;
   background-color: rgba(255,255,255,0.0);
 }
+
+// #nav {
+//   // background-image: url("ht_navbar_wood.jpg");
+// }
+
+// .navbar-hometreat-opacity {
+//   background-color: rgba(255,255,255,0.0);
+// }
 
 /* Logo */
 .navbar-hometreat-brand img {

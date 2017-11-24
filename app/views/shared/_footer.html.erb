@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" id="foot">
   <div class="footer-social">
     <!-- <a href="#"><i class="fa fa-github"></i></a> -->
     <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -10,3 +10,9 @@
     <a href="about"><i class="fa fa-info-circle"></i></a>
   </div>
 </div>
+
+<% if user_signed_in? == true %>
+  <script type="text/javascript">
+document.getElementById("foot").style.backgroundImage = "url(<%= asset_path('ht_footer.jpg') %>)"
+</script>
+<% end %>
