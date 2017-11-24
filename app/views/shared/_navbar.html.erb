@@ -1,9 +1,13 @@
-<%= render 'shared/searchbar' %>
+<% if user_signed_in? %>
+  <%= render 'shared/searchbar' %>
+<% else %>
+<!-- Don't render searchbar -->
+<% end %>
 
-      <div class="navbar-hometreat">
+<div class="navbar-hometreat">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-hometreat-brand" do %>
-    <%= image_tag "logo.png" %>
+  <%= image_tag "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
