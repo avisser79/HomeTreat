@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   end
   resources :appointments, except: [:new, :create]
 
-
+  get 'appointments/appointment/confirm', to: 'pages#confirm'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
