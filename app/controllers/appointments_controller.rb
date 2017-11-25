@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   skip_after_action :verify_policy_scoped, except: [:index]
 
   def index
-    @appointments = Appointment.all
+    @appointments = policy_scope(Appointment)
   end
 
   def new
@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
     @specialist = Specialist.find(params[:specialist_id])
     @appointment.specialist = @specialist
     @appointment.user = current_user
-    authorize current_user
+    authorize @appointment
   end
 
   def create
@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
     @appointment.specialist = @specialist
     tr_ids = params[:appointment][:treatment_ids]
     @appointment.treatments << Treatment.where(id: tr_ids)
-    authorize current_user
+    authorize @appointment
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
@@ -30,17 +30,17 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
-    authorize current_user
+    authorize @appointment
   end
 
   def edit
     @appointment = Appointment.find(params[:id])
-    authorize current_user
+    authorize @appointment
   end
 
   def update
     @appointment = Appointment.find(params[:id])
-    authorize current_user
+    authorize @appointment
     if @appointment.update(appointment_params)
       redirect_to appointment_path(@appointment)
     else
