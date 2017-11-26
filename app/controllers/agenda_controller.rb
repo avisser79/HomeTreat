@@ -1,4 +1,6 @@
 class AgendaController < ApplicationController
+  skip_after_action :verify_authorized
+
   def new
     @availability = Availability.new
     @availability.specialist = current_user.specialist
@@ -31,7 +33,7 @@ class AgendaController < ApplicationController
     if @availability.update(availability_params)
       redirect_to profile_agenda_index_path
     else
-      render :new
+      render :edit
     end
   end
 
