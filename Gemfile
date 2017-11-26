@@ -5,6 +5,10 @@ ruby '2.3.5'
 gem 'devise'
 gem 'pundit'
 
+# calendar
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 # assets
 gem 'faker'
 
