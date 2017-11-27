@@ -9,7 +9,7 @@
 
 const search = document.getElementById('search-active')
 
-$('#calendar').fullCalendar({});
+// $('#calendar').fullCalendar({  });
 
 search.addEventListener('click', function(event) {
   const searchForm = document.getElementById('search-form');

@@ -7,25 +7,25 @@ class AvailabilityPolicy < ApplicationPolicy
         scope.where(specialist: user.specialist)
       end
     end
+  end
 
-    def index?
-      user.is_specialist
-    end
+  def index?
+    user.is_specialist
+  end
 
-    def new?
-      record.specialist == user.specialist
-    end
+  def new?
+    create?
+  end
 
-    def create?
-      new?
-    end
+  def create?
+    user.is_specialist
+  end
 
-    def edit?
-      record.specialist == user.specialist
-    end
+  def edit?
+    record.specialist == user.specialist
+  end
 
-    def update?
-      edit?
-    end
+  def update?
+    edit?
   end
 end
