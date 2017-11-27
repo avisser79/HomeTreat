@@ -1,4 +1,4 @@
-class AgendaPolicy < ApplicationPolicy
+class AvailabilityPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.admin
@@ -13,7 +13,7 @@ class AgendaPolicy < ApplicationPolicy
     end
 
     def new?
-      user.is_specialist
+      record.specialist == user.specialist
     end
 
     def create?
