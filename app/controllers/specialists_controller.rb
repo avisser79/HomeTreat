@@ -1,6 +1,9 @@
 class SpecialistsController < ApplicationController
   def index
     @specialists = policy_scope(Specialist)
+    if params[:subcategory]
+      @specialists = @specialists.joins(:treatments).where({ treatments: { subcategory: params[:subcategory] } })
+    end
   end
 
   def show
