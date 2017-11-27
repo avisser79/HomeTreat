@@ -3,8 +3,9 @@
 
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-hometreat-brand" do %>
-  <%= image_tag "logo.png" %>
+  <%= image_tag "logolarge_brownblue.png" %>
   <% end %>
+
 
   <!-- Right Navigation -->
   <div class="navbar-hometreat-right">
@@ -18,6 +19,11 @@
             <li>
               <%= link_to profile_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "  My profile") %>
+              <% end %>
+            </li>
+             <li>
+              <%= link_to appointments_path do %>
+                <i class="fa fa-calendar"></i> <%= t(".appointments", default: "  My appointments") %>
               <% end %>
             </li>
             <li>
@@ -36,9 +42,6 @@
   </div>
 </div>
 
-<% if user_signed_in? == true %>
-  <script type="text/javascript">
-document.getElementById("nav").style.backgroundImage = "url(<%= asset_path('ht_navbar.jpg') %>)"
-</script>
-  <%= render 'shared/searchbar' %>
-<% end %>
+<%= render 'shared/searchbar' %>
+
+

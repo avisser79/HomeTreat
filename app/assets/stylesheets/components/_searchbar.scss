@@ -3,25 +3,26 @@
 .searchbar {
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top: 100px;
   z-index: 2;
+  background: $pink;
 
 // GRADIENT FOR BACKGROUND COLOR SEARCH BAR
-background: rgb(64,135,220); /* Old browsers */
-background: -moz-linear-gradient(left, rgba(64,135,220,1) 0%, rgba(64,135,220,1) 0%, rgba(64,135,220,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 75%, rgba(64,135,220,1) 100%, rgba(64,135,220,1) 100%, rgba(64,135,220,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', endColorstr='#4087dc',GradientType=1 ); /* IE6-9 */
+// background: rgb(64,135,220); /* Old browsers */
+// background: -moz-linear-gradient(left, rgba(64,135,220,1) 0%, rgba(64,135,220,1) 0%, rgba(64,135,220,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 75%, rgba(64,135,220,1) 100%, rgba(64,135,220,1) 100%, rgba(64,135,220,1) 100%); /* FF3.6-15 */
+// background: -webkit-linear-gradient(left, rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
+// background: linear-gradient(to right, rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(64,135,220,1) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%,rgba(64,135,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', endColorstr='#4087dc',GradientType=1 ); /* IE6-9 */
 
   color: $white;
   transition: all 0.3s ease;
-  padding: 0px 20px;
+  padding: 0px 0px;
   display: flex;
   align-items: center;
   width: 100%;
-  font-family: Raleway;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  height: 100px;
+  font-family: raleway;
 }
 
 
@@ -29,17 +30,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', end
 
 
 .input-wrapper {
-  z-index: 5;
+  z-index: 2;
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
 }
 
-.field-wrapper {
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-}
+// .field-wrapper {
+//   z-index: 5;
+//   display: flex;
+//   justify-content: center;
+// }
 
 // BOOTSTRAP OVERRIDES FOR SEARCH FIELDS
 
@@ -56,6 +57,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', end
   -moz-appearance: none;
   appearance: none;
   outline: 0;
+  font-size: 26px;
+  font-weight:500;
 }
 
 .input-group.first {
@@ -63,39 +66,39 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4087dc', end
 }
 
 button, input, optgroup, select, textarea {
-  font-family: raleway, fontawesome;
+  font-family: philosopher, fontawesome;
   // font-weight: bold;
-  font-size: 18px;
 }
 
 .bootstrap-select {
-  margin-left: 8px;
-  margin-right: 8px;
+  margin: 60px;
+  // margin-right: 60px;
 }
 
-.bootstrap-select-special .bootstrap-select {
+.bootstrap-select-special .bootstrap-select{
   margin-left: 25px;
   margin-right: 25px;
   margin-bottom: 25px;
 }
 
 .dropdown-header {
-  font-family: raleway;
-  font-size: 20px;
-  color: $blue;
+  font-family: philosopher;
+  font-size: 26px;
+  font-weight:500;
+  color: $brown;
 }
 .dropdown-menu > li > a {
   font-family: raleway, fontawesome;
-  font-size: 16px;
+  font-size: 20px;
   color: $gray;
 }
 
 .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
-  background-color: $pink;
+  background-color: $lightblue;
 }
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus, .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
-  color: $blue !important;
+  color: $brown !important;
   outline: 0px !important;
   // text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
@@ -108,17 +111,16 @@ button, input, optgroup, select, textarea {
 }
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder:active, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus  {
-  background: $pink;
-  font-weight: 600;
+background: $mediumpink;
 }
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder:hover {
-  font-weight: 600;
+background: $lightpink;
 }
 
 .glyphicon-ok:before {
   content: "\e013";
-  color: $blue;
+  color: $brown;
 }
 
 .dropdown-menu > li > a {
@@ -128,9 +130,9 @@ button, input, optgroup, select, textarea {
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-  color: $black;
+  color: $white;
   text-decoration: none;
-  background-color: $pink;
+  background-color: $lightblue;
   outline: 0px !important;
 }
 
