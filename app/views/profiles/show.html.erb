@@ -32,7 +32,7 @@
 <% else %>
 <p>No treatments yet</p>
 <% end %>
-<%= link_to 'add a treatment', new_specialist_treatment_path(specialist), class: 'btn btn-primary' %>
+<%= link_to 'add a treatment', new_profile_treatment_path(specialist), class: 'btn btn-primary' %>
 <%= link_to 'update specialist profile', edit_specialist_path(specialist), class: 'btn btn-primary' %>
 <!-- link to public (styled) profile -->
 <%= link_to 'see my public profile', specialist_path(specialist) %>
