@@ -4,7 +4,7 @@ class SpecialistPolicy < ApplicationPolicy
       if user.admin
         scope.all
       else
-        scope.joins(:user).merge(User.where(:admin => false))
+        scope.joins(:user).merge(User.where(:admin => false)).order(:rating)
       end
     end
   end
