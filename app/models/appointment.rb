@@ -7,6 +7,7 @@ class Appointment < ApplicationRecord
   validates :location, presence: true
   validates :user, presence: true
   validates :start_time, presence: true
+  validates :end_time, presence: true
   validate :treatment_specialists_matching
 
   def treatment_specialists_matching

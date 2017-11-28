@@ -20,6 +20,7 @@ class AppointmentsController < ApplicationController
     @appointment.specialist = @specialist
     tr_ids = params[:appointment][:treatment_ids]
     @appointment.treatments << Treatment.where(id: tr_ids)
+    @appointment.end_time = @appointment.start_time + (@appointment.treatments.map { |t| t.duration }.reduce { |x, y| x + y }).minutes
     authorize @appointment
     if @appointment.save
       redirect_to appointment_path(@appointment)
