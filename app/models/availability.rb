@@ -8,6 +8,15 @@ class Availability < ApplicationRecord
   validates :start_time, :end_time, overlap: { scope: "specialist_id" }
 
   def calender_formatting
-    { id: id, start: start_time, end: end_time, title: location, description: "available from: #{start_time} to #{end_time}", url: "/agenda/#{id}" }
+    {
+      id: id,
+      start: start_time,
+      end: end_time,
+      title: location,
+      description: "available from: #{start_time} to #{end_time}",
+      url: "/agenda/#{id}"
+    }
   end
+
+
 end

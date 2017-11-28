@@ -10,6 +10,7 @@ class AppointmentsController < ApplicationController
     @specialist = Specialist.find(params[:specialist_id])
     @appointment.specialist = @specialist
     @appointment.user = current_user
+    @availability = Availability.find(params[:availability_id])
     authorize @appointment
   end
 

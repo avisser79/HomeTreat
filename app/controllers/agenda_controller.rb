@@ -44,6 +44,7 @@ class AgendaController < ApplicationController
 
   def show
     @availability = Availability.find(params[:id])
+    authorize @availability
   end
 
   private
