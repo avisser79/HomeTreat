@@ -1,5 +1,5 @@
 class AgendaController < ApplicationController
-  skip_after_action :verify_authorized
+  #skip_after_action :verify_authorized
 
   def new
     @availability = Availability.new
@@ -20,6 +20,11 @@ class AgendaController < ApplicationController
 
   def index
     @availabilities = policy_scope(Availability)
+    @json_availabilities = @availabilities.map { |a| a.calender_formatting }.to_a
+    respond_to do |format|
+      format.html
+      format.json { render json: @json_availabilities }
+    end
   end
 
   def edit
@@ -35,6 +40,10 @@ class AgendaController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    @availability = Availability.find(params[:id])
   end
 
   private
