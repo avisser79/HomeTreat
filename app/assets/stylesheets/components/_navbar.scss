@@ -5,14 +5,13 @@
   color: $blue;
   z-index: 3;
   height: 100px;
-  background: $brown;
   transition: all 0.3s ease;
   padding: 0px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: rgba(255,255,255,0.0);
+  background-color: $lightbrown;
 }
 
 // #nav {

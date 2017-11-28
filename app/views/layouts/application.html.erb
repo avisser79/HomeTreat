@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
   </head>
 
-  <body>
+  <body class=<%= params[:controller] %>-<%= params[:action] %>>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <div style='padding-top: 200px'>
@@ -21,4 +21,5 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
   </body>
+
 </html>
