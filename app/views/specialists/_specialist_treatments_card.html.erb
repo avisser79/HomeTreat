@@ -9,7 +9,7 @@
     </div>
     <div class="specialist_treatments_card">
       <table id="t01">
-        <% @specialist.treatments.each do |treatment| %>
+        <% @specialist.treatments.limit(4).each do |treatment| %>
           <tr>
             <td>
               <%=  treatment.description %>
@@ -20,9 +20,7 @@
             <td style="justify-content: right">
               € <%=  treatment.price %>
             </td>
-            <td>
-              <%= link_to "Select", specialist_path(@specialist), class: "specialist_card-link" %>
-            </td>
+            <td> Select.. </td>
           </tr>
         <% end %>
       </table>
