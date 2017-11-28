@@ -12,7 +12,7 @@
 /* Style the list */
 .price {
     list-style-type: none;
-    border: 1px solid #eee;
+    border: 1px solid $lightblue;
     margin: 0;
     padding: 0;
     -webkit-transition: 0.3s;
@@ -33,20 +33,20 @@
 
 /* List items */
 .price li {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $lightblue;
     padding: 20px;
     // text-align: center;
 }
 
 /* Grey list item */
 .price .grey {
-    background-color: #eee;
+    background-color: $lightblue;
     font-size: 20px;
 }
 
 /* The "Sign Up" button */
 .button {
-    background-color: $blue;
+    background-color: $lightblue;
     border: none;
     color: white;
     padding: 10px 25px;
@@ -64,7 +64,7 @@
 }
 
 .confirm-booking-summary {
-  font-size: 24px;
+  font-size: 18px;
   text-align: left;
   font-family: Raleway;
 }

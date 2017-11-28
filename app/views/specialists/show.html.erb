@@ -10,6 +10,7 @@
         <%= render 'specialist_treatments_card', specialist: @specialist %>
       </div>
       <div class="col-xs-12">
+        <!-- <div style="padding-bottom: 10px">Reviews</div> -->
         <div class="specialist_card_reviews">
             <ul>
               <% 3.times do %>
@@ -31,7 +32,16 @@
             <% end %>
             </ul>
       </div>
+    </div>
   </div>
 </div>
+<!-- Place button on top? -->
+<div>
+  <%= link_to 'Book an appointment', new_specialist_appointment_path(@specialist), class: 'btn btn-primary' %>
 
+  <!-- edit profile if looking at own page -->
+  <% if @specialist.user == current_user %>
+  <%= link_to 'Update my profile', profile_path, class: 'btn btn-primary' %>
+  <% end %>
+</div>
 

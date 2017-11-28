@@ -33,20 +33,21 @@
 
 /* List items */
 .price li {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $light-gray;
     padding: 20px;
     // text-align: center;
 }
 
 /* Grey list item */
 .price .grey {
-    background-color: #eee;
+    background-color: $lightblue;
+    color: white;
     font-size: 20px;
 }
 
 /* The "Sign Up" button */
 .button {
-    background-color: $blue;
+    background-color: $lightblue;
     border: none;
     color: white;
     padding: 10px 25px;
@@ -67,6 +68,8 @@
   font-size: 24px;
   text-align: left;
   font-family: Raleway;
+      padding-left: 10px;
+    font-size: 20px;
   p{
     text-align: left;
   }

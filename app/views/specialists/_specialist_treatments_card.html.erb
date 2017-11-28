@@ -20,7 +20,8 @@
             <td style="justify-content: right">
               € <%=  treatment.price %>
             </td>
-            <td> Select.. </td>
+            <td> <%= link_to "Select", new_specialist_appointment_path(@specialist) %>
+            </td>
           </tr>
         <% end %>
       </table>

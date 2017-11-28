@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row confirm-booking-summary">
-    <p>Please confirm your appointment with <%= @appointment.specialist.full_name %> at <%= @appointment.start_time %> in <%= @appointment.location %></p>
+    <p>Please confirm your appointment with <%= @appointment.specialist.full_name %> on <%= @appointment.start_time.strftime("%a %d %b %y") %> at <%= @appointment.start_time.strftime("%H:%M h") %> in <%= @appointment.location %></p>
     </div>
 
     <div class="row">
@@ -31,20 +31,20 @@
         <ul class="price">
           <li class="grey">Price</li>
           <% @appointment.treatments.each do |treatment| %>
-          <li>€ <%= treatment.price %></li>
+          <li>€ <%= number_with_precision(treatment.price, :precision => 2) %></li>
           <% end %>
 
           <% treatment_vat_total = 0 %>
           <% @appointment.treatments.each do |treatment| %>
           <% treatment_vat_total += treatment.price * 0.06 %>
           <% end %>
-          <li>€ <%= treatment_vat_total.round(2) %></li>
+          <li>€ <%= number_with_precision(treatment_vat_total, :precision => 2) %></li>
 
           <% treatment_total = 0 %>
           <% @appointment.treatments.each do |treatment| %>
           <% treatment_total += treatment.price * 1.06 %>
           <% end %>
-          <li><strong>€ <%= treatment_total.round(2) %></strong></li>
+          <li><strong>€ <%= number_with_precision(treatment_total, :precision => 2) %></strong></li>
         </ul>
       </div>
     </div>
