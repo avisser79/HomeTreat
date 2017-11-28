@@ -6,3 +6,7 @@
 .pages-home .footer {
   background-color: rgba(255,255,255,0.0);
 }
+
+body.pages-home {
+  background-color: $lightbrown !important;
+}
