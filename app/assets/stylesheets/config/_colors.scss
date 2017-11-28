@@ -1,14 +1,16 @@
 // Define variables for your color scheme
 
 // Design specific colors
-$blue: #0168c9 ; // 'Treat' | text and icons searchbar | circle search button | specialist names
+$blue: #2B1B0D ; // backup #0168c9 'Treat' | text and icons searchbar | circle search button | specialist names
 $mediumblue: #4087DC ; // background searchbar
-$lightblue: #7FAEE7 ; // left- and topborder cards | righ-part search button
-$brown: #512200 ; // brown for gradient, combine with opacity of 0.3
-$lightbrown: #E4A480 ; // rating-stars | lines between reviews
-$pink: #F8E9E0 ; // background cells treatment listing -> alternate with lightpink
-$lightpink: #FCF4F0 ; // background cells treatment listing -> alternate with pink
-$gray: #4A4A4A ; // use for all 'black' text on white background
+
+$lightblue: #7DA3D1 ; // left- and topborder cards | righ-part search button
+$brown: #2B1B0D ; // darkbrown for texts and details
+$lightbrown: #9E6F47 ; // navbar etc.
+
+$pink: #F9F6F3; // backup #DCCBBD // background cells treatment listing -> alternate with lightpink
+$lightpink: #EDE5DE; //backup #F9F6F3 // background cells treatment listing -> alternate with pink
+$gray: #2B1B0D; // backup #4A4A4A // use for all 'black' text on white background
 
 // Flash-alert colors
 $red: #c91801 ;

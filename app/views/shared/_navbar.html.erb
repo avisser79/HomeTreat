@@ -41,9 +41,3 @@
   </div>
 </div>
 
-<% if user_signed_in? == true %>
-  <script type="text/javascript">
-document.getElementById("nav").style.backgroundImage = "url(<%= asset_path('ht_navbar.jpg') %>)"
-</script>
-  <%= render 'shared/searchbar' %>
-<% end %>
