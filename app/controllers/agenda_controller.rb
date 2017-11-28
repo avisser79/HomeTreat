@@ -5,10 +5,6 @@ class AgendaController < ApplicationController
     @availability = Availability.new
     @availability.specialist = current_user.specialist
     authorize @availability
-    respond_to do |format|
-      format.html
-      format.json { render json: validated_address }
-    end
   end
 
   def create
@@ -25,6 +21,10 @@ class AgendaController < ApplicationController
   def index
     @availabilities = policy_scope(Availability)
     @json_availabilities = @availabilities.map { |a| a.calender_formatting }.to_a
+    respond_to do |format|
+      format.html
+      format.json { render json: @json_availabilities }
+    end
   end
 
   def edit

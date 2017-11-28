@@ -5,6 +5,6 @@
 <%= link_to 'update calendar', new_profile_agenda_path, class: 'btn btn-primary' %>
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
-    $('#calendar').fullCalendar({ events: <%= @json_availabilities %> });
+    $('#calendar').fullCalendar({ events: '/profile/agenda.json' });
   <% end %>
 <% end %>
