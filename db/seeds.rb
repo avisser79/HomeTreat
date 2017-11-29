@@ -29,10 +29,10 @@ body.save
 puts 'Categories added!'
 
 # subcategory seed
-subcategories_hair = ["Hair cut", "Hair removal", "Hair trimming / shaving", "Hair colouring", "Hair styling"]
-subcategories_skin = ["Skin care", "Make-up"]
+subcategories_hair = ["Hair colouring", "Hair cut", "Hair removal",  "Hair styling", "Hair trimming"]
+subcategories_skin = ["Make-up", "Skin care"]
 subcategories_nails = ["Manicure", "Pedicure"]
-subcategories_body = ["Swedish massage therapy", "Aromatherapy massage", "hot stone massage", "deep tissue massage", "shiatsu massage", "thai massage", "pregnancy massage", "reflexology", "other"]
+subcategories_body = ["Fitness", "Fysio", "Massage", "Other"]
 
 puts 'creating hair subcategories'
 subcategories_hair.each do |subcategory_hair|

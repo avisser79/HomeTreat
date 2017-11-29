@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>HomeTreat | Get your treatment. Anytime. Anywhere.</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-  </head>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>HomeTreat | Get your treatment. Anytime. Anywhere.</title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+</head>
 
-  <body class=<%= params[:controller] %>-<%= params[:action] %>>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <div style='padding-top: 200px'>
-    <%= yield %>
+<body class=<%= params[:controller] %>-<%= params[:action] %>>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= render 'shared/navbar' %>
+        <%= render 'shared/flashes' %>
+        <div style='padding-top: 210px'>
+          <%= yield %>
+        </div>
+        <%= javascript_include_tag 'application' %>
+        <%= render 'shared/footer' %>
+      </div>
     </div>
-    <%= javascript_include_tag 'application' %>
-    <%= render 'shared/footer' %>
-    <%= yield(:after_js) %>
+  </div>
+
+
+
+  <%= yield(:after_js) %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-  </body>
+</body>
 
 </html>
