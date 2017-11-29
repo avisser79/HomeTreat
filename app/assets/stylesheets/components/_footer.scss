@@ -10,38 +10,36 @@
   height: 50px;
   padding: 0px 20px;
   color: $white;
-  background-color: rgba(0,0,0,0.0);
+  background-color: $lightbrown;
 }
 
 .footer-social {
-  font-family: Raleway;
   display: flex;
   align-items: center;
-  text-shadow: 0px 1px 7px rgba(0, 0, 0, 0.8);
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 }
 .footer-social a {
   color: $white;
-  font-size: 24px;
+  font-size: 18px;
   padding-right: 20px;
   transition: all 0.3s ease-in-out;
 }
 .footer-social a:hover {
   color: $lightblue;
   font-weight: bold;
-  transform: scale(1.1);
+  // transform: scale(1.1);
 }
 
 .footer-about {
-  font-family: Raleway;
-  text-shadow: 0px 1px 7px rgba(0, 0, 0, 0.8);
+  font-size: 18px;
+  font-family: Poppins;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 }
 .footer-about a {
   color: $white;
-  font-size: 25px;
   transition: all 0.3s ease-in-out;
 }
 .footer-about a:hover {
   color: $lightblue;
   font-weight: bold;
-  font-size:26px;
 }
