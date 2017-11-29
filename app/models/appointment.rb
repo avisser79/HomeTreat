@@ -20,6 +20,5 @@ class Appointment < ApplicationRecord
   def appointment_in_availability
     availabilities = specialist.availabilities.where(date: date)
     errors.add(:start_time, "Specialist is not available at this time") unless availabilities.any? { |a| start_time.between?(a.start_time, a.end_time) && end_time.between?(a.start_time, a.end_time) }
-    byebug
   end
 end

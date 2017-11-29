@@ -2,9 +2,9 @@ class SpecialistsController < ApplicationController
   def index
     @specialists = policy_scope(Specialist)
     subcategory_filter(params[:subcategory]) if params[:subcategory]
-    time_filter(params[:time]) if params[:time]
-    price_filter(params[:price]) if params[:price]
-    location_filter(params[:location]) if params[:location]
+    time_filter(params[:time]) unless params[:time].blank?
+    price_filter(params[:price]) unless params[:price].blank?
+    location_filter(params[:location]) unless params[:location].blank?
   end
 
   def show
