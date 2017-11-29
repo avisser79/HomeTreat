@@ -1,14 +1,15 @@
 <%= video_tag "body.webm", :loop => true, :autoplay => true, poster: "ht_banner.jpg", class: "video" %>
 <%= video_tag "body.mp4", :loop => true, :autoplay => true, poster: "ht_banner.jpg", class: "video" %>
-
+<!--
 <div class="videobanner gradient">
+</div> -->
+
   <div class="content">
-    <h1 id="hometreat_header"><span style="color: #FFFFFF">Home</span><span style="color: #0168c9">Treat</span></h1>
-      <p id="hometreat_usp"><strong>Get your treatment</strong>. Anytime. Anywhere.</p>
+    <h1 id="hometreat_header"><span style="color: #FFFFFF">Home</span><span style="color: #7DA3D1">Treat</span></h1>
+      <h2 id="hometreat_usp"><strong>Get your treatment</strong>. Anytime. Anywhere.<h2>
 
  <!-- When user logs in, search fields and button become hidden so user only sees searchbar on top of the page  -->
-
-  <% if user_signed_in? == false %>
+      <div class="home_searchbar">
       <form method='GET' action="<%= specialists_path %>">
          <div class="input-wrapper bootstrap-select-special input-group.first">
            <div class="container">
@@ -21,16 +22,18 @@
            </div>
          </div>
          <div>
-           <div class="container">
+          <div class="">
+          <!--  <div class="container">
              <div class="row">
-               <div class="col-xs-12 col-sm-12 col-lg-12">
-                 <button type="submit" class="btn-search"><i class="fa fa-search btn-search-circle"></i>  Search</button>
-               </div>
+               <div class="col-xs-12 col-sm-12 col-lg-12"> -->
+                 <button type="submit" class="buttonbar"><i class="fa fa-search btn-search-circle"></i> Search</button>
+              <!--  </div>
              </div>
-           </div>
+           </div> -->
           </div>
          </div>
+       </div>
        </form>
-<% end %>
     </div>
   </div>
+

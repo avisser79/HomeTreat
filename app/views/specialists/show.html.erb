@@ -11,6 +11,7 @@
       </div>
       <div class="col-xs-6" id='calendar'></div>
       <div class="col-xs-12">
+        <!-- <div style="padding-bottom: 10px">Reviews</div> -->
         <div class="specialist_card_reviews">
             <ul>
               <% 3.times do %>
@@ -43,4 +44,10 @@
   <% end %>
 <% end %>
 
+
+  <!-- edit profile if looking at own page -->
+  <% if @specialist.user == current_user %>
+  <%= link_to 'Update my profile', profile_path, class: 'btn btn-primary' %>
+  <% end %>
+</div>
 

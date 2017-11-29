@@ -1,9 +1,10 @@
 class SpecialistsController < ApplicationController
   def index
     @specialists = policy_scope(Specialist)
-    if params[:subcategory]
-      @specialists = @specialists.joins(:treatments).where({ treatments: { subcategory: params[:subcategory] } })
-    end
+    subcategory_filter(params[:subcategory]) if params[:subcategory]
+    time_filter(params[:time]) if params[:time]
+    price_filter(params[:price]) if params[:price]
+    location_filter(params[:location]) if params[:location]
   end
 
   def show
@@ -54,5 +55,20 @@ class SpecialistsController < ApplicationController
 
   def specialist_params
     params.require(:specialist).permit(:bio, :work_experience, :specialization)
+  end
+
+  def subcategory_filter(subcat_params)
+    @specialists = @specialists.joins(:treatments).where({ treatments: { subcategory: subcat_params } })
+  end
+
+  # def time_filter(time_params)
+  #   @specialists = @specialists.joins(:availabilities).where({ availabilities: { "? BETWEEN ? AND ?", time_params, start_time:, end_time: } })
+  # end
+
+  def price_filter(price_params)
+    @specialists = @specialists.where( "hourly_rate < ?", price_params)
+  end
+
+  def location_filter(loc_params)
   end
 end
