@@ -94,7 +94,7 @@ locations = [
   "Amsterdam", "Berlin", "Antwerp", "Amsterdam", "Amsterdam"
 ]
 time = Time.now
-days = (0..7).to_a
+days = (1..7).to_a
 hours = [8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
 minutes = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0]
 subcategories = Subcategory.all
@@ -118,10 +118,12 @@ User.take(10).each do |user|
     treatment.save
   end
   days.sample(days.sample).each do |day|
-    times = [time.change(hour: hours.sample, minutes: minutes.sample), time.change(hour: hours.sample, minutes: minutes.sample)].sort
-    availability = Availability.new({ start_time: times[0], end_time: times[1], date: (days.sample).days.from_now, location: locations.sample })
-    availability.specialist = specialist
-    availability.save
+    5.times do
+      times = [time.change(hour: hours.sample, min: minutes.sample), time.change(hour: hours.sample, min: minutes.sample)].sort
+      availability = Availability.new({ start_time: times[0], end_time: times[1], date: day.days.from_now, location: locations.sample })
+      availability.specialist = specialist
+      availability.save
+    end
   end
   specialist.save!
 end
