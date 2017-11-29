@@ -5,14 +5,26 @@ class Availability < ApplicationRecord
   validates :end_time, presence: true
   validates :specialist, presence: true
   validates :location, presence: true
-  validate :duplicate_Availability
+  validates :start_time, :end_time, overlap: { scope: "specialist_id" }
 
-  # def duplicate_Availability
-  #   # check if start_time and end_time are not between start and end times from other availabilities
-  #   timeslots = Specialist.includes(:availabilities).find(:specialist).availabilities.each do |timeslot|
-  #     errors.add(:start_time, 'start time for timeslot cannot overlap other timeslots') if start_time in (timeslot.start_time..timeslot.end_time)
-  #     errors.add(:end_time, 'end time for timeslot cannot overlap other timeslots') if end_time in (timeslot.start_time..timeslot.end_time)
-  #     break
-  #   end
-  # end
+
+  # validate :cannot_overlap_another_event
+
+#   scope :in_range, -> range {
+#   where('BETWEEN ? AND ?', range.first, range.last)
+# }
+#   scope :exclude_self, -> id { where.not(id: id) }
+
+#   def cannot_overlap_another_event
+#   overlaps = Availability.where('BETWEEN ? AND ?', start_time, end_time)
+#   overlap_error unless overlaps.empty?
+#   end
+
+#   def overlap_error
+#     errors.add(:overlap, 'timeslots cannot overlap')
+#   end
+
+  def calender_formatting
+    { id: id, start: start_time, end: end_time, title: location, description: "available from: #{start_time} to #{end_time}", url: "/agenda/#{id}" }
+  end
 end

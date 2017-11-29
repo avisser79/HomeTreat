@@ -228,6 +228,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.4)
+    validates_overlap (0.8.6)
+      rails (>= 3.0.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -269,6 +271,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
+  validates_overlap
   web-console (>= 3.3.0)
 
 RUBY VERSION

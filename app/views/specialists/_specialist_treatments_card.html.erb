@@ -1,0 +1,31 @@
+<div class="specialist_card" id="specialist_card-info-1">
+  <div class="specialist_card-info">
+    <div class="specialist_treatments_card-info-header">
+      <h4>
+        <strong>
+          Treatments offered by <%= specialist.full_name %>
+          </strong>
+        </h4>
+    </div>
+    <div class="specialist_treatments_card">
+      <table id="t01">
+        <% @specialist.treatments.limit(4).each do |treatment| %>
+          <tr>
+            <td>
+              <%=  treatment.description %>
+            </td>
+            <td>
+              <%=  treatment.duration %> min
+            </td>
+            <td style="justify-content: right">
+              € <%=  treatment.price %>
+            </td>
+            <td> <%= link_to "Select", new_specialist_appointment_path(@specialist) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+

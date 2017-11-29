@@ -1,62 +1,47 @@
-<div class="container">
+<div class="specialist_card-container">
   <div class="text-center">
   <h1>Your selected specialist</h1>
   </div>
-  <div class="row confirm-booking-summary">
-     <h1> <%= @specialist.full_name %></h1>
-        <p> <%= @specialist.user.email %> </p>
-        <p><%= @specialist.bio %></p>
-        <p><%= @specialist.work_experience %></p>
-         <% if @specialist.treatments.blank? %>
-            <p>No treatments yet</p>
-        <% end %>
-    </div>
-
-    <div class="row">
-      <div class="columns confirm-booking-left-box">
-        <ul class="price">
-          <li class="grey">Treatment</li>
-          <% @specialist.treatments.each do |treatment| %>
-          <li><%= treatment.description %></li>
-          <% end %>
-        </ul>
+  <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= render 'card', specialist: @specialist %>
       </div>
-
-     <!--  <div class="row">
-      <div class="columns confirm-booking-left-box">
-        <ul class="price">
-          <li class="grey">Category</li>
-          <% @specialist.treatments.each do |treatment| %>
-          <li><%= treatment.subcategory.name %></li>
-          <% end %>
-        </ul>
-      </div> -->
-
-      <div class="columns text-center">
-        <ul class="price">
-          <li class="grey">Duration</li>
-          <% @specialist.treatments.each do |treatment| %>
-          <li><%= treatment.duration %> min</li>
-          <% end %>
-        </ul>
+      <div class="col-xs-12 col-md-6">
+        <%= render 'specialist_treatments_card', specialist: @specialist %>
       </div>
-
-      <div class="columns text-center">
-        <ul class="price">
-          <li class="grey">Price (excl. VAT)</li>
-          <% @specialist.treatments.each do |treatment| %>
-          <li>€ <%= treatment.price %></li>
-          <% end %>
-        </ul>
+      <div class="col-xs-12">
+        <!-- <div style="padding-bottom: 10px">Reviews</div> -->
+        <div class="specialist_card_reviews">
+            <ul>
+              <% 3.times do %>
+            <li class="specialist-reviews-subbox">
+              <% stars = rand(1..5) %>
+              <div class="header">
+              <h1>Emma</h1>
+                <% stars.times do %>
+                <span class="fa fa-star" id="star"></span>
+                <% end %>
+                <% (5 - stars).times do %>
+                <span class="fa fa-star-o" id="star"></span>
+                <% end %>
+              </div>
+              <div>
+              <p>This specialist was the best I ever had!</p>
+              </div>
+            </li>
+            <% end %>
+            </ul>
       </div>
-    </div>
-
-    <div>
-      <%= link_to 'book an appointment', new_specialist_appointment_path(@specialist), class: 'btn btn-primary' %>
-
-        <!-- edit profile if looking at own page -->
-        <% if @specialist.user == current_user %>
-        <%= link_to 'update my profile', profile_path, class: 'btn btn-primary' %>
-        <% end %>
     </div>
   </div>
+</div>
+<!-- Place button on top? -->
+<div>
+  <%= link_to 'Book an appointment', new_specialist_appointment_path(@specialist), class: 'btn btn-primary' %>
+
+  <!-- edit profile if looking at own page -->
+  <% if @specialist.user == current_user %>
+  <%= link_to 'Update my profile', profile_path, class: 'btn btn-primary' %>
+  <% end %>
+</div>
+

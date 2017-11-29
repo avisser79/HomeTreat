@@ -8,6 +8,7 @@ gem 'pundit'
 # calendar
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'validates_overlap'
 
 # assets
 gem 'faker'

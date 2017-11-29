@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 175px;
+  height: 160px;
   width: 250px;
   padding-left: 20px;
   margin-top: 12px;
@@ -100,6 +100,101 @@
   opacity: 0.1;
 }
 
+.specialist_treatments_card {
+    position: relative;
+    left: -20px;
+    width: 420px;
+    font-size: 12px;
+}
+
+.specialist_treatments_card-info-header {
+  color: $gray;
+  width: 400px;
+  margin-left: -12px;
+  margin-bottom: 12px;
+  h4 {
+    font-size: 13px;
+  }
+}
+
+table#t01 {
+  td {
+    padding: 8px 10px;
+
+  }
+    width: 100%;
+    background-color: #f1f1c1;
+}
+
+table#t01 tr:nth-child(even) {
+    background-color: $lightpink;
+    color: $lightbrown;
+}
+table#t01 tr:nth-child(odd) {
+    background-color: $pink;
+    color: $lightbrown;
+    // font-weight: bold;
+}
+table#t01 th {
+    color: white;
+    background-color: black;
+    font-weight: bold;
+}
+
+.specialist_card_reviews {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+  border-top: 15px solid $lightblue;
+  position: relative;
+  width: 940px;
+  border-left:solid $lightblue 3px;
+  ul {
+    width: 100%;
+    list-style: none;
+  }
+  h4, h2, p {
+    margin: 0;
+  }
+}
+
+#specialist_card-info-1 {
+  border-left:solid $lightblue 3px;
+}
+
+li.specialist-reviews-subbox {
+  .header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    h1 {
+      margin: 0;
+      margin-right: 10px;
+
+    }
+  }
+  margin: 10px 0;
+  text-align: left;
+  width: 100%;
+  border-bottom: 1px solid #9E6F47;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  h1 {
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  p{
+    text-align: left;
+    font-size: 12px;
+    font-style: italic;
+  }
+}
+
+#star {
+ color: $lightbrown;
+ font-size: 12px;
+}
 // .row {
 //     width: 1100px;
 //     margin-left: -110px;

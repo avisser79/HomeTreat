@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resource :profile, except: [:destroy] do
     resources :appointments, only: [:index]
     resources :treatments, only: [:new, :create]
-    resources :agenda, shallow: true, except: [:destroy, :show]
+    resources :agenda, shallow: true, except: [:destroy]
   end
 
   resources :specialists, except: [:destroy] do
