@@ -9,6 +9,7 @@
       <div class="col-xs-12 col-md-6">
         <%= render 'specialist_treatments_card', specialist: @specialist %>
       </div>
+      <div class="col-xs-6" id='calendar'></div>
       <div class="col-xs-12">
         <!-- <div style="padding-bottom: 10px">Reviews</div> -->
         <div class="specialist_card_reviews">
@@ -35,9 +36,14 @@
     </div>
   </div>
 </div>
-<!-- Place button on top? -->
-<div>
-  <%= link_to 'Book an appointment', new_specialist_appointment_path(@specialist), class: 'btn btn-primary' %>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $('#calendar').fullCalendar({
+    defaultView: 'agendaWeek',
+    events: '/specialists/<%= @specialist.id %>.json' });
+  <% end %>
+<% end %>
+
 
   <!-- edit profile if looking at own page -->
   <% if @specialist.user == current_user %>

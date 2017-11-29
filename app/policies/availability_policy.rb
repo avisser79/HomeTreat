@@ -28,4 +28,8 @@ class AvailabilityPolicy < ApplicationPolicy
   def update?
     edit?
   end
+
+  def show?
+    true
+  end
 end
