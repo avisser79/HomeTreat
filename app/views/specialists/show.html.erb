@@ -1,5 +1,7 @@
  <%= render 'shared/searchbar' %>
-
+<div class="breadcrumbs">
+ <%= link_to 'specialists', specialists_path  %> > <%= @specialist.user.full_name %>
+</div>
  <div class="specialist_card-container-index">
     <%= render 'shared/sidebar' %>
 
