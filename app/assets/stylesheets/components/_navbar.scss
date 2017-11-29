@@ -11,7 +11,29 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: $lightbrown;
+  background-color: transparent;
+}
+
+.navbar-categories {
+  margin-left: 50px;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    color: $lightblue;
+    text-decoration: none;
+    font-weight: 800;
+    transition: color 200ms ease;
+    &:hover {
+      color: $lightbrown;
+      text-decoration: none;
+
+    }
+  }
 }
 
 // #nav {

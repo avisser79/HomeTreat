@@ -6,6 +6,16 @@
   <%= image_tag "logo.png" %>
   <% end %>
 
+<div class="navbar-categories">
+  <ul class="list-inline">
+    <% Category.all.each do |category| %>
+      <li>
+        <%= link_to category.name, "#"  %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
   <!-- Right Navigation -->
   <div class="navbar-hometreat-right">
 
