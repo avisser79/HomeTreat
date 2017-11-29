@@ -1,4 +1,24 @@
+ <%= render 'shared/searchbar' %>
+
 <div class="container">
+  <div class="sidebar">
+    <ul class="list-unstyled">
+      <% Category.all.each do |category| %>
+        <h5>
+          <%= category.name %>
+        </h5>
+        <ul class="list-unstyled">
+          <% category.subcategories.each do |subcategory| %>
+            <li>
+              <h6>
+              <%= subcategory.name %>
+              </h6>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </ul>
+  </div>
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <h2 class="text-center header-form">
@@ -15,8 +35,5 @@
     </div>
   </div>
 </div>
-
-
-
 
 
