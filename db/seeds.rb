@@ -8,6 +8,7 @@
 Order.delete_all
 Appointment.delete_all
 Treatment.delete_all
+Availability.delete_all
 Specialist.delete_all
 Subcategory.delete_all
 Category.delete_all
@@ -82,7 +83,20 @@ puts 'creating users'
   user.save!
 end
 
-bios = ["I'm young, friendly, and eager to earn a little on the side", "I'm selfish and like bold man, but Make-up is my true passion", "If you can do my hair I'll work for free", "My dog is hairy and ugly, so I'm fine with any hairstyle", "Beware, I like to listen to heavy metal during my work"]
+bios = [
+  "I'm young, friendly, and eager to earn a little on the side",
+  "I'm selfish and like bold man, but Make-up is my true passion",
+  "If you can do my hair I'll work for free",
+  "My dog is hairy and ugly, so I'm fine with any hairstyle",
+  "Beware, I like to listen to heavy metal during my work"
+]
+locations = [
+  "Amsterdam", "Berlin", "Antwerp", "Amsterdam", "Amsterdam"
+]
+time = Time.now
+days = (1..7).to_a
+hours = [8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+minutes = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0]
 subcategories = Subcategory.all
 categories = Category.all
 
@@ -103,29 +117,13 @@ User.take(10).each do |user|
     treatment.description = treatment.subcategory.name + ' treatment'
     treatment.save
   end
+  days.sample(days.sample).each do |day|
+    5.times do
+      times = [time.change(hour: hours.sample, min: minutes.sample), time.change(hour: hours.sample, min: minutes.sample)].sort
+      availability = Availability.new({ start_time: times[0], end_time: times[1], date: day.days.from_now, location: locations.sample })
+      availability.specialist = specialist
+      availability.save
+    end
+  end
   specialist.save!
 end
-
-# review_titles = ["nice", "perfect", "loved it", "superb", "smells funny", "treated me real good"]
-# clients = Client.all
-# 10.times do
-#   specialist = Specialist.new({ first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, address: Faker::Address.street_address, bio: bios.sample, rating: (0..5).to_a.sample })
-#   specialist.email = Faker::Internet.email
-#   specialist.password = 'password'
-#   specialist.password_confirmation = 'password'
-#   # treatment seed
-#   (1..10).to_a.sample.times do
-#     treatment = Treatment.new({ description: Faker::Dessert.variety, price: rand(5..30), duration: rand(5..60), segment: 'everyone' })
-#     treatment.specialist = specialist
-#     treatment.subcategory = subcategories.sample
-#     treatment.save
-#   end
-#   # review seed
-#   (1..10).to_a.sample.times do
-#     review = Review.new({ title: review_titles.sample, content: Faker::MostInterestingManInTheWorld.quote, rating: rand(0..5) })
-#     review.specialist = specialist
-#     review.client = clients.sample
-#     review.save!
-#   end
-#   specialist.save!
-# end

@@ -1,6 +1,6 @@
 <h1>My appointments:</h1>
 <ul>
 <% @appointments.each do |appointment| %>
-  <li><%= link_to <%= appointment.description %> on <%= appointment.start_time %> with <%= appointment.specialist %> , appointment_path(@appointment) %> </li>
+  <li><%= link_to <%= appointment.description %> on <%= appointment.date %> at <%= appointment.start_time %> with <%= appointment.specialist %> , appointment_path(@appointment) %> </li>
 <% end %>
 </ul>

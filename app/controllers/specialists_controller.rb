@@ -9,7 +9,12 @@ class SpecialistsController < ApplicationController
 
   def show
     @specialist = Specialist.find(params[:id])
+    @json_availabilities = @specialist.availabilities.map { |a| helpers.appointment_formatting(a) }.to_a
     authorize @specialist
+    respond_to do |format|
+      format.html
+      format.json { render json: @json_availabilities }
+    end
   end
 
   def new
