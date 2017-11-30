@@ -1,0 +1,18 @@
+<div class="sidebar">
+    <ul class="list-unstyled">
+      <% Category.all.each do |category| %>
+        <h5>
+          <%= category.name %>
+        </h5>
+        <ul class="list-unstyled">
+          <% category.subcategories.each do |subcategory| %>
+            <li>
+              <h6>
+              <%= subcategory.name %>
+              </h6>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </ul>
+  </div>

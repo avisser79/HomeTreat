@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+ <%= render 'shared/searchbar' %>
+
+<div class="breadcrumbs">
+ <%= link_to 'specialists', specialists_path  %> > <%= link_to @specialist.user.full_name, specialist_path(@specialist) %> > new
+</div>
+<div class="specialist_card-container-index">
+  <%= render 'shared/sidebar' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+        <%= simple_form_for [:specialist, @appointment] do |f| %>
+        <div class="col-xs-6">
+        <h1 style="font-weight: 400; font-size: 20px;">Book an appointment with
+          <%= @specialist.full_name %>
+        </h1>
+          <%= f.input :location, label: 'Where?', placeholder: 'Address of your treatment'%>
+          <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment' %>
+
+=======
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
@@ -10,9 +31,20 @@
         <%= f.input :start_time %>
         <%= f.input :date, as: :hidden, value: @availability.date %>
         <input name="availability_id" type="hidden" value="<%= @availability.id %>" />
+>>>>>>> master
         <%= f.association :treatments, include_hidden: false, collection: Treatment.where(specialist: @specialist), label_method: :description, value_method: :id, as: :check_boxes %>
         <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
+        <% end %>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<<<<<<< HEAD
+
+
+
+
+=======
+>>>>>>> master
