@@ -16,7 +16,7 @@
       <div class="col-xs-12 col-md-6">
         <%= render 'specialist_treatments_card', specialist: @specialist %>
       </div>
-      <div class="col-xs-6" id='calendar'></div>
+      <div class="col-xs-12" id='calendar'></div>
       <div class="col-xs-12">
         <!-- <div style="padding-bottom: 10px">Reviews</div> -->
         <div class="specialist_card_reviews">
@@ -52,7 +52,8 @@
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $('#calendar').fullCalendar({
-    defaultView: 'agendaWeek',
+
+<!--     defaultView: 'agendaWeek', -->
     events: '/specialists/<%= @specialist.id %>.json' });
   <% end %>
 <% end %>
