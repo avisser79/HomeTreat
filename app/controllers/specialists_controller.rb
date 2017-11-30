@@ -2,7 +2,7 @@ class SpecialistsController < ApplicationController
   def index
     @specialists = policy_scope(Specialist)
     subcategory_filter(params[:subcategory]) if params[:subcategory]
-    time_filter(params[:time]) unless params[:time].blank?
+    date_filter(params[:date]) unless params[:date].blank?
     price_filter(params[:price]) unless params[:price].blank?
     location_filter(params[:location]) unless params[:location].blank?
   end
@@ -61,9 +61,12 @@ class SpecialistsController < ApplicationController
     @specialists = @specialists.includes(:treatments).where({ treatments: { subcategory: subcat_params } })
   end
 
-  # def time_filter(time_params)
-  #   @specialists = @specialists.joins(:availabilities).where({ availabilities: { "? BETWEEN ? AND ?", time_params, start_time:, end_time: } })
-  # end
+  def date_filter(date_params)
+    parsed_params = date_params.split(",")
+    selected_dates = parsed_params.map { |d| Date.strptime(d, "%m/%d/%Y") }
+    # byebug
+    @specialists = @specialists.includes(:availabilities).where({ availabilities: { date: selected_dates } })
+  end
 
   def price_filter(price_params)
     @specialists = @specialists.where( "hourly_rate < ?", price_params)
