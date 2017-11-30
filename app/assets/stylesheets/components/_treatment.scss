@@ -1,0 +1,56 @@
+#treatment_list {
+  list-style: none;
+  padding: 0;
+  li {
+    font-weight: 400;
+  }
+  li:before {
+    content: "✔ ✖";
+    display: inline-block;
+    width: 42px;
+  }
+}
+
+.fc-left {
+  h2 {
+    font-size: 22px;
+    color: gray;
+  }
+}
+
+.fc-day-header.fc-widget-header span {
+  font-size: 15px;
+  color: gray;
+  font-weight: 400;
+
+}
+
+.fc-content {
+  .fc-time {
+    font-size: 13px;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  .fc-title {
+    font-size: 14px;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+}
+
+// button.fc-today-button, button.fc-state-disabled {
+//   background-color: #7eadec;
+//     color: white;
+//     font-weight: 500;
+//     text-shadow: none;
+//     border: none;
+// }
+
+// .fc-prev-button.fc-button.fc-state-default {
+//   background-color: #7eadec;
+//     color: white;
+//     font-weight: 500;
+//     text-shadow: none;
+//     border: none;
+// }
+

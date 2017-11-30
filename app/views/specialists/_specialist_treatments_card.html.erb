@@ -20,7 +20,7 @@
             <td style="justify-content: right">
               € <%=  treatment.price %>
             </td>
-            <td> <%= link_to "Select", new_specialist_appointment_path(@specialist) %>
+            <td><a onclick="document.getElementById('treatment_list').insertAdjacentHTML('beforeend', '<li><%= treatment.description %></li>');document.getElementById('appointment_treatments').value += '<%= treatment.id %>,'">select</a>
             </td>
           </tr>
         <% end %>
@@ -28,4 +28,3 @@
     </div>
   </div>
 </div>
-
