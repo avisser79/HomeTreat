@@ -14,14 +14,17 @@
 <body class=<%= params[:controller] %>-<%= params[:action] %>>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <%= render 'shared/navbar' %>
+      <div class="col-xs-12" style-"color: white">
+          <%= render 'shared/navbar' %>
         <%= render 'shared/flashes' %>
         <div style='padding-top: 210px'>
           <%= yield %>
         </div>
         <%= javascript_include_tag 'application' %>
-        <%= render 'shared/footer' %>
+        <% unless params[:controller] == "pages" && params[:action] == "home" %>
+          <%= render 'shared/footer' %>
+        <% end %>
+
       </div>
     </div>
   </div>
