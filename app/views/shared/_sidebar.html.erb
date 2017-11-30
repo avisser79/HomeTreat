@@ -8,7 +8,7 @@
           <% category.subcategories.each do |subcategory| %>
             <li>
               <h6>
-              <%= subcategory.name %>
+                <%= link_to subcategory.name, specialists_path(subcategory: [subcategory.id]) %>
               </h6>
             </li>
           <% end %>
