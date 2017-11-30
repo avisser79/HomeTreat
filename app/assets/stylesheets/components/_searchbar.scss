@@ -21,6 +21,30 @@
   // box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
 }
 
+.searchbar-input-price {
+  height: 42px;
+  width: 120px;
+  text-align: center !important;
+}
+
+.searchbar-input-location {
+  height: 42px;
+  width: 170px;
+  text-align: center !important;
+}
+
+.searchbar-input-date {
+  height: 42px;
+  width: 120px;
+  text-align: center !important;
+}
+
+.pages-home {
+  .btn-group.bootstrap-select.show-tick.fa.raleway {
+    margin-top: 7px;
+  }
+}
+
 .home_searchbar {
   padding: 30px;
   margin: 0 auto;

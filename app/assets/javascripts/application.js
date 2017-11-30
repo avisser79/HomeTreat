@@ -13,3 +13,7 @@ search.addEventListener('click', function(event) {
   const searchForm = document.getElementById('search-form');
   searchForm.classList.toggle('hidden-xs')
 })
+
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });

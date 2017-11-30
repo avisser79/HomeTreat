@@ -1,4 +1,3 @@
-<<<<<<< HEAD
  <%= render 'shared/searchbar' %>
 
 <div class="breadcrumbs">
@@ -17,21 +16,8 @@
         </h1>
           <%= f.input :location, label: 'Where?', placeholder: 'Address of your treatment'%>
           <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment' %>
-
-=======
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <h2 class="text-center header-form">
-        Book an appointment with
-        <%= @specialist.full_name %> on <%= l(@availability.date, format: :short) %> between <%= l(@availability.start_time, format: :short) %> and <%= l(@availability.end_time, format: :short) %>
-      </h2>
-      <%= simple_form_for [:specialist, @appointment] do |f| %>
-       <%= f.input :location %>
-        <%= f.input :start_time %>
         <%= f.input :date, as: :hidden, value: @availability.date %>
         <input name="availability_id" type="hidden" value="<%= @availability.id %>" />
->>>>>>> master
         <%= f.association :treatments, include_hidden: false, collection: Treatment.where(specialist: @specialist), label_method: :description, value_method: :id, as: :check_boxes %>
         <%= f.button :submit, class: 'btn btn-primary' %>
         <% end %>
@@ -41,10 +27,3 @@
     </div>
   </div>
 </div>
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> master
