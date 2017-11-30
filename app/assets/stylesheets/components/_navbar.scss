@@ -6,7 +6,6 @@
   z-index: 3;
   height: 100px;
   transition: all 0.3s ease;
-  padding: 0px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -129,6 +128,21 @@ margin-top: 0 !important;
   padding: 10px 20px;
   background: $lightblue !important;
 }
+
+.navbar-mypages {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.1;
+  color:  $gray;
+  a {
+    margin: 0 10px;
+  }
+}
+
 .navbar-hometreat-dropdown-menu li > a:hover {
   // background: $brown !important;
   // color: $white !important;
