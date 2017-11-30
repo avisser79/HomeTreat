@@ -5,6 +5,7 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   has_one :specialist
 
+  has_many :appointments
   mount_uploader :photo, PhotoUploader
 
   def full_profile?
