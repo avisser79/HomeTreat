@@ -15,6 +15,7 @@ class SpecialistsController < ApplicationController
       format.html
       format.json { render json: @json_availabilities }
     end
+    raise
   end
 
   def new

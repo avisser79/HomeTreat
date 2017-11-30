@@ -3,6 +3,7 @@ class Specialist < ApplicationRecord
   has_many :treatments
   has_many :subcategories, through: :treatments
   has_many :appointments
+  has_many :reviews
   has_many :availabilities
 
   validates :bio, presence: true
