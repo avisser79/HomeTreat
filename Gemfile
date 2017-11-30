@@ -31,6 +31,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'bootstrap-datepicker-rails'
 gem 'omniauth-facebook'
 
 group :development, :test do
