@@ -58,7 +58,7 @@ class SpecialistsController < ApplicationController
   end
 
   def subcategory_filter(subcat_params)
-    @specialists = @specialists.joins(:treatments).where({ treatments: { subcategory: subcat_params } })
+    @specialists = @specialists.includes(:treatments).where({ treatments: { subcategory: subcat_params } })
   end
 
   # def time_filter(time_params)
