@@ -6,6 +6,15 @@
   <%= image_tag "logo1.svg" %>
   <% end %>
 
+  <% if user_signed_in? %>
+
+  <div class="navbar-mypages">
+  <a href="#">My Bookings</a>
+  <a href="#">My Favourites</a>
+  <a href="#">My Account</a>
+  </div>
+  <% end %>
+
 <!-- <div class="navbar-categories">
   <ul class="list-inline">
     <% Category.all.each do |category| %>
