@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
   padding: 0px 20px;
   color: $white;
   background-color: $lightblue;
@@ -31,13 +30,21 @@
 }
 
 .footer-about {
+   display: flex;
+    align-items: center;
+    ul {
+      padding: 0;
+      margin-top: 20px;
+      margin-right: 30px;
+    }
   font-size: 18px;
   font-family: Poppins;
-  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 200px;
+  // text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 }
 .footer-about a {
   color: $white;
-  transition: all 0.3s ease-in-out;
+  // transition: all 0.3s ease-in-out;
 }
 .footer-about a:hover {
   color: $lightblue;
