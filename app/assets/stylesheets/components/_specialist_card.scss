@@ -123,6 +123,7 @@
 }
 
 table#t01 {
+  font-weight: 400;
   td {
     padding: 8px 10px;
 
@@ -133,11 +134,11 @@ table#t01 {
 
 table#t01 tr:nth-child(even) {
     background-color: $lightpink;
-    color: $lightbrown;
+    // color: $lightbrown;
 }
 table#t01 tr:nth-child(odd) {
     background-color: $pink;
-    color: $lightbrown;
+    // color: $lightbrown;
     // font-weight: bold;
 }
 table#t01 th {
@@ -153,7 +154,7 @@ table#t01 th {
   border-top: 15px solid $lightblue;
   position: relative;
   width: 940px;
-  border-left:solid $lightblue 3px;
+  // border-left:solid $lightblue 3px;
   ul {
     width: 100%;
     list-style: none;
@@ -163,9 +164,9 @@ table#t01 th {
   }
 }
 
-#specialist_card-info-1 {
-  border-left:solid $lightblue 3px;
-}
+// #specialist_card-info-1 {
+//   border-left:solid $lightblue 3px;
+// }
 
 li.specialist-reviews-subbox {
   .header {
@@ -181,7 +182,7 @@ li.specialist-reviews-subbox {
   margin: 10px 0;
   text-align: left;
   width: 100%;
-  border-bottom: 1px solid #9E6F47;
+  border-bottom: 1px solid $lightblue;
   padding-top: 10px;
   padding-bottom: 10px;
   h1 {
@@ -197,7 +198,7 @@ li.specialist-reviews-subbox {
 }
 
 #star {
- color: $lightbrown;
+ color: gold;
  font-size: 12px;
 }
 // .row {

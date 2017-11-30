@@ -11,7 +11,7 @@ class Appointment < ApplicationRecord
   validates :date, presence: true
   validates :treatments, presence: true
   validate :treatment_specialists_matching
-  validate :appointment_in_availability
+  # validate :appointment_in_availability
 
   def treatment_specialists_matching
     errors.add(:treatments, "can't add treatments of different specialists") unless treatments.all? { |t| t.specialist == specialist }

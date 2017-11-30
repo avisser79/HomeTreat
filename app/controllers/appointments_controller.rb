@@ -19,9 +19,8 @@ class AppointmentsController < ApplicationController
     @specialist = Specialist.find(params[:specialist_id])
     @appointment.user = current_user
     @appointment.specialist = @specialist
-    @availability = Availability.find(params[:availability_id])
-    @appointment.date = @availability.date
-    if tr_ids = params[:appointment][:treatment_ids]
+    tr_ids = params[:appointment][:treatments].split(",")
+    unless tr_ids.blank?
       @appointment.treatments << Treatment.where(id: tr_ids)
       @appointment.end_time = @appointment.start_time + (@appointment.treatments.map { |t| t.duration }.reduce { |x, y| x + y }).minutes
     end
@@ -56,7 +55,7 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-   params.require(:appointment).permit(:location, :treatment_ids, :start_time, :date)
+   params.require(:appointment).permit(:location, :start_time, :date)
   end
 
 
