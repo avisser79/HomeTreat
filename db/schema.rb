@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130170035) do
+ActiveRecord::Schema.define(version: 20171201130531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,8 +58,11 @@ ActiveRecord::Schema.define(version: 20171130170035) do
     t.string   "title"
     t.text     "content"
     t.string   "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "specialist_id"
+    t.string   "name"
+    t.index ["specialist_id"], name: "index_reviews_on_specialist_id", using: :btree
   end
 
   create_table "specialists", force: :cascade do |t|
@@ -71,7 +74,6 @@ ActiveRecord::Schema.define(version: 20171130170035) do
     t.datetime "updated_at",      null: false
     t.string   "specialization"
     t.integer  "hourly_rate"
-    t.integer  "review_id"
     t.index ["user_id"], name: "index_specialists_on_user_id", using: :btree
   end
 
@@ -128,7 +130,7 @@ ActiveRecord::Schema.define(version: 20171130170035) do
   add_foreign_key "availabilities", "specialists"
   add_foreign_key "orders", "appointments"
   add_foreign_key "orders", "treatments"
-  add_foreign_key "specialists", "reviews"
+  add_foreign_key "reviews", "specialists"
   add_foreign_key "subcategories", "categories"
   add_foreign_key "treatments", "specialists"
   add_foreign_key "treatments", "subcategories"

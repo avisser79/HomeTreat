@@ -13,10 +13,10 @@
     <div class="specialist_card-rating">
       <% if specialist.rating %>
           <% specialist.rating.times do %>
-            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star" id="star"></span>
           <% end %>
           <% (5-specialist.rating).times do %>
-            <span class="fa fa-star"></span>
+            <span class="fa fa-star-o" id="star"></span>
           <% end %>
         <% else %>
           <p>no rating yet</p>
