@@ -1,4 +1,6 @@
 class SpecialistsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @specialists = policy_scope(Specialist)
     subcategory_filter(params[:subcategory]) if params[:subcategory]

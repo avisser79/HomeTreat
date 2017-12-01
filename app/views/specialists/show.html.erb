@@ -21,6 +21,7 @@
       <div class="row">
         <!-- calendar div -->
         <div class="col-xs-6">
+          <h1 style="font-weight: 400; font-size: 20px;">Pick a date for your appointment</h1>
           <div id='calendar'></div>
         </div>
 
@@ -32,8 +33,8 @@
             <%= @specialist.full_name %>
           </h1>
           <%= f.input :location, label: 'Where?', placeholder: 'Address of your treatment'%>
-          <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment' %>
-          <%= f.input :date %>
+          <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment', as: :string %>
+          <%= f.input :date, as: :string %>
           <input name="appointment[treatments]" value="" id="appointment_treatments" hidden>
           <ul id='treatment_list'>
           </ul>
@@ -78,11 +79,20 @@
   </div>
 </div>
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
-$('#calendar').fullCalendar({
-defaultView: 'agendaWeek',
-events: '/specialists/<%= @specialist.id %>.json' });
-<% end %>
+<script>
+  $('#calendar').fullCalendar({
+  defaultView: 'listWeek',
+  header: { left: 'agendaWeek, listWeek' },
+  eventClick: function updateForm(event) {
+    var startDate = event.start.format('YYYY-MM-DD');
+    var startTime = event.start.format('hh:mm')
+    $('#appointment_start_time').val(startTime);
+    $('#appointment_date').val(startDate);
+  },
+  events: '/specialists/<%= @specialist.id %>.json' });
+
+
+</script>
 <% end %>
 
 

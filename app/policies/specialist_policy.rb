@@ -1,7 +1,7 @@
 class SpecialistPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.admin
+      if user && user.admin
         scope.all
       else
         scope.joins(:user).merge(User.where(:admin => false)).order(:rating)
