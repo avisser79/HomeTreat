@@ -28,7 +28,7 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
-      render :new
+      render 'specialists/show'
     end
   end
 

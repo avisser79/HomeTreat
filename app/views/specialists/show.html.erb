@@ -21,29 +21,26 @@
       <div class="row">
         <!-- calendar div -->
         <div class="col-xs-6">
+          <h1 style="font-weight: 400; font-size: 20px;">Pick a date for your appointment</h1>
           <div id='calendar'></div>
         </div>
 
         <!-- booking form -->
-        <div class="col-xs-6" id="appointment-form">
-
-          <div class="booking-form-wrapper">
-            <%= simple_form_for [@specialist, @appointment] do |f| %>
-            <h1 style="font-weight: 400; font-size: 20px;">Book an appointment with
-              <%= @specialist.full_name %>
-            </h1>
-            <%= f.input :location, label: 'Where?', placeholder: 'Address of your treatment'%>
-            <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment' %>
-            <%= f.input :date %>
-            <input name="appointment[treatments]" value="" id="appointment_treatments" hidden>
-            <ul id='treatment_list'>
-            </ul>
-            <%= f.button :submit, class: 'btn btn-primary' %>
-            <% end %>
-          </div>
-
-
+        <div class="col-xs-6">
+          <%= simple_form_for [@specialist, @appointment] do |f| %>
+          <h1 style="font-weight: 400; font-size: 20px;">Book an appointment with
+            <%= @specialist.full_name %>
+          </h1>
+          <%= f.input :location, label: 'Where?', placeholder: 'Address of your treatment'%>
+          <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment', as: :string %>
+          <%= f.input :date, as: :string %>
+          <input name="appointment[treatments]" value="" id="appointment_treatments" hidden>
+          <ul id='treatment_list'>
+          </ul>
+          <%= f.button :submit, class: 'btn btn-primary' %>
+          <% end %>
         </div>
+
       </div>
 
 
@@ -51,13 +48,14 @@
       <div class="row">
         <div class="col-xs-12">
           <!-- <div style="padding-bottom: 10px">Reviews</div> -->
+          <h1 style="font-weight: 400; font-size: 20px;">Reviews</h1>
           <div class="specialist_card_reviews">
-            <ul>
-              <% 3.times do %>
+            <ul style='margin: 0; padding: 0;'>
+              <% @specialist.reviews.each do |review| %>
               <li class="specialist-reviews-subbox">
-                <% stars = rand(1..5) %>
+                <% stars = review.rating.to_i %>
                 <div class="header">
-                  <h1>Emma</h1>
+                  <h1><%= review.name %></h1>
                   <% stars.times do %>
                   <span class="fa fa-star" id="star"></span>
                   <% end %>
@@ -66,7 +64,7 @@
                   <% end %>
                 </div>
                 <div>
-                  <p>This specialist was the best I ever had!</p>
+                  <p><%= review.content %></p>
                 </div>
               </li>
               <% end %>
@@ -82,11 +80,20 @@
   </div>
 </div>
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
-$('#calendar').fullCalendar({
-defaultView: 'agendaWeek',
-events: '/specialists/<%= @specialist.id %>.json' });
-<% end %>
+<script>
+  $('#calendar').fullCalendar({
+  defaultView: 'listWeek',
+  header: { left: 'agendaWeek, listWeek' },
+  eventClick: function updateForm(event) {
+    var startDate = event.start.format('YYYY-MM-DD');
+    var startTime = event.start.format('hh:mm')
+    $('#appointment_start_time').val(startTime);
+    $('#appointment_date').val(startDate);
+  },
+  events: '/specialists/<%= @specialist.id %>.json' });
+
+
+</script>
 <% end %>
 
 

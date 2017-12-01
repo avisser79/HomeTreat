@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Review.delete_all
 Order.delete_all
 Appointment.delete_all
 Treatment.delete_all
@@ -81,7 +82,8 @@ urls = ["http://res.cloudinary.com/dkmxtdusq/image/upload/v1511539041/wout_urs51
   "https://s3.amazonaws.com/resume.cdn/articles/authors/32_898341_RondaSuderShotsquare.jpg",
   "https://livingmaxwell.com/wp-content/uploads/2009/07/max-headshot.jpg",
   "https://www.google.nl/imgres?imgurl=https%3A%2F%2Fs3.amazonaws.com%2Ftypekit-production-public-assets%2Fdesigners%2Fprofile_images%2F000%2F000%2F860%2Foriginal%2Frobert-slimbach-unedited.jpg%3F1507329738&imgrefurl=https%3A%2F%2Ftypekit.com%2Ffonts%2Fadobe-garamond&docid=RsHoAX8tjwJf7M&tbnid=hcNGmNgEsK6q8M%3A&vet=10ahUKEwiImoHI2ubXAhVLKewKHbUGCGc4rAIQMwgLKAkwCQ..i&w=400&h=400&bih=699&biw=1275&q=regular%20person&ved=0ahUKEwiImoHI2ubXAhVLKewKHbUGCGc4rAIQMwgLKAkwCQ&iact=mrc&uact=8",
-  "https://www.google.nl/imgres?imgurl=https%3A%2F%2Fs3.amazonaws.com%2Ftypekit-production-public-assets%2Fdesigners%2Fprofile_images%2F000%2F000%2F635%2Foriginal%2FKhajag_Apelian_square.jpg%3F1507307777&imgrefurl=https%3A%2F%2Ftypekit.com%2Ffonts%2Farek&docid=qL5KojQiDQDaPM&tbnid=bQ3LSmYwNy72WM%3A&vet=10ahUKEwiImoHI2ubXAhVLKewKHbUGCGc4rAIQMwhYKFUwVQ..i&w=400&h=400&bih=699&biw=1275&q=regular%20person&ved=0ahUKEwiImoHI2ubXAhVLKewKHbUGCGc4rAIQMwhYKFUwVQ&iact=mrc&uact=8"]
+  "https://www.google.nl/imgres?imgurl=https%3A%2F%2Fs3.amazonaws.com%2Ftypekit-production-public-assets%2Fdesigners%2Fprofile_images%2F000%2F000%2F635%2Foriginal%2FKhajag_Apelian_square.jpg%3F1507307777&imgrefurl=https%3A%2F%2Ftypekit.com%2Ffonts%2Farek&docid=qL5KojQiDQDaPM&tbnid=bQ3LSmYwNy72WM%3A&vet=10ahUKEwiImoHI2ubXAhVLKewKHbUGCGc4rAIQMwhYKFUwVQ..i&w=400&h=400&bih=699&biw=1275&q=regular%20person&ved=0ahUKEwiImoHI2ubXAhVLKewKHbUGCGc4rAIQMwhYKFUwVQ&iact=mrc&uact=8",
+  "http://thebeardedladyproject.com/wp-content/uploads/2014/09/IMG_3202.jpg"]
 url = "http://res.cloudinary.com/dkmxtdusq/image/upload/v1511532826/srsa1duxqqiv7oceozoe.jpg"
 # admin account
 admin = User.new({ first_name: 'Hometreat', last_name: 'Admin', email: 'admin@hometreat.com' })
@@ -155,10 +157,20 @@ User.take(20).each do |user|
 end
 
 # adding rating to specialists
-# puts 'adding ratings to users'
-# Specialist.take(20).each do |specialist|
-#     specialist.reviews << Review.create!(
-#     content: ["It was really good", "just the best", "Finest specialist ever", "Would go again", "Personal touch ++"].sample,
-#     rating: rand(3..5)
-#     )
-# end
+puts 'adding ratings to users'
+Specialist.take(20).each do |specialist|
+  3.times do
+    specialist.reviews << Review.create!(
+    name: Faker::Name.first_name,
+    content: ["It was really good", "just the best", "Finest specialist ever", "Would go again", "Personal touch ++"].sample,
+    rating: rand(3..5),
+    specialist: specialist
+    )
+  end
+  ratings = specialist.reviews.map { |r| r.rating.to_i }
+  puts "ratings: #{ratings}"
+  rating = ratings.reduce { |x, y| x + y } / 3
+  puts "rating: #{rating}"
+  specialist.rating = rating
+  specialist.save
+end
