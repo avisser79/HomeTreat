@@ -4,42 +4,51 @@
 <div class="videobanner gradient">
 </div> -->
 
-  <div class="content">
-    <h1 id="hometreat_header"><span style="color: #FFFFFF">Home</span><span style="color: #7DA3D1">Treat</span></h1>
-      <h2 id="hometreat_usp"><strong>Get your treatment</strong>. Anytime. Anywhere.<h2>
-
- <!-- When user logs in, search fields and button become hidden so user only sees searchbar on top of the page  -->
-
-      <div class="home_searchbar">
-
-      <form method='GET' action="<%= specialists_path %>">
-         <div class="input-wrapper bootstrap-select-special input-group.first">
-           <div class="container">
-             <div class="row">
-               <%= render 'shared/search_treatment' %>
-               <%= render 'shared/search_date' %>
-               <%= render 'shared/search_price' %>
-               <%= render 'shared/search_location' %>
-             </div>
-           </div>
-         </div>
-         <div>
-          <div class="">
-          <!--  <div class="container">
-             <div class="row">
-               <div class="col-xs-12 col-sm-12 col-lg-12"> -->
-                 <button type="submit" class="buttonbar"><i class="fa fa-search btn-search-circle"></i>Search specialists</button>
-              <!--  </div>
-             </div>
-           </div> -->
+<div class="content">
+  <h1 id="hometreat_header">
+    <span style="color: #FFFFFF">
+      Home
+    </span>
+    <span style="color: #7DA3D1">
+      Treat
+    </span>
+  </h1>
+  <h2 id="hometreat_usp">
+      <strong>Get your treatment</strong>. Anytime. Anywhere.
+  <h2>
+  <div class="home_searchbar">
+    <form method='GET' action="<%= specialists_path %>">
+      <div class="input-wrapper bootstrap-select-special input-group.first">
+        <div class="container">
+          <div class="row">
+            <%= render 'shared/search_treatment' %>
+            <%= render 'shared/search_date' %>
+            <%= render 'shared/search_price' %>
+            <%= render 'shared/search_location' %>
           </div>
-         </div>
-       </div>
-       </form>
+        </div>
+      </div>
+      <button type="submit" class="buttonbar">
+        <i class="fa fa-search btn-search-circle"></i>Search specialists
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="exposition-box">
+        <h2>
+          Hair | Skin | Nails | Body
+        </h2>
+        <p>
+          Don’t have time to go to a salon? Feeling stressed? Book now and get your body and beauty treatment in the comfort of your own home – even after salon hours. If you are skilled in hair, skin, nails, or body treatments sign up as a specialist and start making money.
+        </p>
+        <%= link_to "Sign up here",new_user_registration_path, class: 'btn btn-primary'  %>
+      </div>
     </div>
   </div>
+</div> -->
 
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#">Book Treatment</a></li>
-  <li><a href="#">Find a Specialist</a></li>
-</ul>
+
