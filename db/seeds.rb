@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Review.delete_all
 Order.delete_all
 Appointment.delete_all
 Treatment.delete_all
@@ -156,10 +157,20 @@ User.take(20).each do |user|
 end
 
 # adding rating to specialists
-# puts 'adding ratings to users'
-# Specialist.take(20).each do |specialist|
-#     specialist.reviews << Review.create!(
-#     content: ["It was really good", "just the best", "Finest specialist ever", "Would go again", "Personal touch ++"].sample,
-#     rating: rand(3..5)
-#     )
-# end
+puts 'adding ratings to users'
+Specialist.take(20).each do |specialist|
+  3.times do
+    specialist.reviews << Review.create!(
+    name: Faker::Name.first_name,
+    content: ["It was really good", "just the best", "Finest specialist ever", "Would go again", "Personal touch ++"].sample,
+    rating: rand(3..5),
+    specialist: specialist
+    )
+  end
+  ratings = specialist.reviews.map { |r| r.rating.to_i }
+  puts "ratings: #{ratings}"
+  rating = ratings.reduce { |x, y| x + y } / 3
+  puts "rating: #{rating}"
+  specialist.rating = rating
+  specialist.save
+end
