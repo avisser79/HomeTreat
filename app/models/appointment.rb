@@ -3,7 +3,7 @@ class Appointment < ApplicationRecord
   belongs_to :specialist
   has_many :orders, dependent: :destroy
   has_many :treatments, through: :orders
-
+  has_many :reviews
   validates :location, presence: true
   validates :user, presence: true
   validates :start_time, presence: true

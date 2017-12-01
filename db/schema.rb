@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129100532) do
+ActiveRecord::Schema.define(version: 20171130170035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20171129100532) do
     t.datetime "updated_at",      null: false
     t.string   "specialization"
     t.integer  "hourly_rate"
+    t.integer  "review_id"
     t.index ["user_id"], name: "index_specialists_on_user_id", using: :btree
   end
 
@@ -127,6 +128,7 @@ ActiveRecord::Schema.define(version: 20171129100532) do
   add_foreign_key "availabilities", "specialists"
   add_foreign_key "orders", "appointments"
   add_foreign_key "orders", "treatments"
+  add_foreign_key "specialists", "reviews"
   add_foreign_key "subcategories", "categories"
   add_foreign_key "treatments", "specialists"
   add_foreign_key "treatments", "subcategories"

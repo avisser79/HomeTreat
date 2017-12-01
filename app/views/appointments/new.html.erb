@@ -10,6 +10,22 @@
       <div class="col-xs-12">
         <div class="row">
 
+
+        <%= simple_form_for [:specialist, @appointment] do |f| %>
+        <div class="col-xs-6">
+          <div class="appointment_form">
+        <h1 style="font-weight: 400; font-size: 20px;">Book an appointment with
+          <%= @specialist.full_name %>
+        </h1>
+          <%= f.input :location, label: 'Where?', placeholder: 'Address of your treatment'%>
+          <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment', input_html: { value: @ } %>
+
+
+        <%= f.association :treatments, include_hidden: false, collection: Treatment.where(specialist: @specialist), label_method: :description, value_method: :id, as: :check_boxes %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+        </div>
+        </div>
         </div>
       </div>
     </div>
