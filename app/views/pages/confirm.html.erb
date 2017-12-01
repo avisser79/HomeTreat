@@ -1,1 +1,20 @@
-<h1>Thank you for your booking!</h1>
+<div class="container">
+  <div class="col-xs-6">
+    <h1>Thank you for your booking!</h1>
+  </div>
+  <div class="col-xs-6">
+    <div class="product-ad">
+      <div class="shop-image">
+        <%= image_tag 'nivea-men.jpg', width: '250' %>
+        <!-- <img src="nivea-men.jpg" alt="Nivea men products"> -->
+      </div>
+      <div class="shop-tagline">
+        <span>Get 20% off Nivea Men products</span>
+      </div>
+
+      <div><%= link_to "Buy",new_user_registration_path, class: 'btn btn-primary'  %>
+      </div>
+
+    </div>
+  </div>
+</div>

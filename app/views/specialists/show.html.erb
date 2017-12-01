@@ -24,21 +24,25 @@
           <div id='calendar'></div>
         </div>
 
-
         <!-- booking form -->
-        <div class="col-xs-6">
-          <%= simple_form_for [@specialist, @appointment] do |f| %>
-          <h1 style="font-weight: 400; font-size: 20px;">Book an appointment with
-            <%= @specialist.full_name %>
-          </h1>
-          <%= f.input :location, label: 'Where?', placeholder: 'Address of your treatment'%>
-          <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment' %>
-          <%= f.input :date %>
-          <input name="appointment[treatments]" value="" id="appointment_treatments" hidden>
-          <ul id='treatment_list'>
-          </ul>
-          <%= f.button :submit, class: 'btn btn-primary' %>
-          <% end %>
+        <div class="col-xs-6" id="appointment-form">
+
+          <div class="booking-form-wrapper">
+            <%= simple_form_for [@specialist, @appointment] do |f| %>
+            <h1 style="font-weight: 400; font-size: 20px;">Book an appointment with
+              <%= @specialist.full_name %>
+            </h1>
+            <%= f.input :location, label: 'Where?', placeholder: 'Address of your treatment'%>
+            <%= f.input :start_time, label: 'When?', placeholder: 'Start date and time of your treatment' %>
+            <%= f.input :date %>
+            <input name="appointment[treatments]" value="" id="appointment_treatments" hidden>
+            <ul id='treatment_list'>
+            </ul>
+            <%= f.button :submit, class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+
+
         </div>
       </div>
 

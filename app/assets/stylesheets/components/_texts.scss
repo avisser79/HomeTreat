@@ -26,7 +26,7 @@ a:visited {
 
 body {
   font-family: 'Poppins';
-  font-weight: lighter;
+  font-weight: 300;
  color: $brown;
 }
 
@@ -49,7 +49,7 @@ p {
 
 // Get your treatment. Anytime. Anywhere.
 #hometreat_usp {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'poppins', sans-serif;
   color: $white;
   text-align: center;
   font-size: 35px;
@@ -64,14 +64,14 @@ p {
 
 #specialist_category {
   color: gray;
-  font-family: Raleway;
+  font-family: poppins;
   font-size: 16px;
 }
 
 #create_appointment {
   h1 {
     color: gray;
-    font-family: Raleway;
+    font-family: poppins;
     font-size: 12px;
   }
 }

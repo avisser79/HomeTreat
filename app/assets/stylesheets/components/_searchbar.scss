@@ -32,19 +32,36 @@
   height: 42px;
   width: 120px;
   text-align: center !important;
+  font-weight: 200;
+  font-size: 18px;
+  color: $black;
+  &::placeholder {
+    color: black;
+  }
 }
 
 .searchbar-input-location {
   height: 42px;
   width: 170px;
   text-align: center !important;
+  font-weight: 200;
+  font-size: 18px;
+  color: $black;
+  &::placeholder {
+    color: black;
+  }
 }
 
 .searchbar-input-date {
   height: 42px;
   width: 120px;
   text-align: center !important;
-  color: black;
+  color: $black;
+  font-weight: 200;
+  font-size: 18px;
+  &::placeholder {
+    color: black;
+  }
 }
 
 .pages-home {

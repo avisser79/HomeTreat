@@ -10,3 +10,13 @@
 body.pages-home {
   background-color: $lightbrown !important;
 }
+
+.exposition-box {
+    text-align: center;
+    padding: 30px 10px;
+    background: rgba(43, 27, 13, 0.5);
+    margin: 40px 0;
+  h2, p {
+    color: white;
+  }
+}
