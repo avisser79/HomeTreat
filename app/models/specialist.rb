@@ -5,6 +5,7 @@ class Specialist < ApplicationRecord
   has_many :appointments
   has_many :reviews
   has_many :availabilities
+  has_many :favorites
 
   validates :bio, presence: true
   validates :user, presence: true

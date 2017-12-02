@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'favorites/index'
+
+  get 'favorites/new'
+
+  get 'favorites/create'
+
+  get 'favorites/update'
+
+  get 'favorites/edit'
+
+  get 'favorites/destroy'
+
   root to: 'pages#home'
 
   devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
