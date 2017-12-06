@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   has_one :specialist
+  has_many :favorites
 
   has_many :appointments
   mount_uploader :photo, PhotoUploader
